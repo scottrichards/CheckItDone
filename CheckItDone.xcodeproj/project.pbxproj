@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0188542717F9F3DD0081FC30 /* CDTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188542617F9F3DD0081FC30 /* CDTableView.m */; };
+		0188542D17FA01D30081FC30 /* CDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188542C17FA01D30081FC30 /* CDTableViewController.m */; };
+		0188543317FA03AF0081FC30 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188543017FA03AF0081FC30 /* BNRItem.m */; };
+		0188543417FA03AF0081FC30 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188543217FA03AF0081FC30 /* BNRItemStore.m */; };
+		0188543917FA20B00081FC30 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188543717FA20B00081FC30 /* HeaderView.xib */; };
+		0188543E17FA44F10081FC30 /* CDTaskViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188543A17FA44F10081FC30 /* CDTaskViewController_iPad.xib */; };
+		0188543F17FA44F10081FC30 /* CDTaskViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188543C17FA44F10081FC30 /* CDTaskViewController_iPhone.xib */; };
 		01BC368C17E0D21800E3FB36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BC368B17E0D21800E3FB36 /* UIKit.framework */; };
 		01BC368E17E0D21800E3FB36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BC368D17E0D21800E3FB36 /* Foundation.framework */; };
 		01BC369017E0D21800E3FB36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BC368F17E0D21800E3FB36 /* CoreGraphics.framework */; };
@@ -17,18 +24,26 @@
 		01BC36A017E0D21800E3FB36 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC369F17E0D21800E3FB36 /* Default@2x.png */; };
 		01BC36A217E0D21800E3FB36 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36A117E0D21800E3FB36 /* Default-568h@2x.png */; };
 		01BC36A517E0D21800E3FB36 /* CDFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BC36A417E0D21800E3FB36 /* CDFirstViewController.m */; };
-		01BC36A717E0D21800E3FB36 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36A617E0D21800E3FB36 /* first.png */; };
-		01BC36A917E0D21800E3FB36 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36A817E0D21800E3FB36 /* first@2x.png */; };
 		01BC36AC17E0D21800E3FB36 /* CDSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BC36AB17E0D21800E3FB36 /* CDSecondViewController.m */; };
-		01BC36AE17E0D21800E3FB36 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36AD17E0D21800E3FB36 /* second.png */; };
-		01BC36B017E0D21800E3FB36 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36AF17E0D21800E3FB36 /* second@2x.png */; };
-		01BC36B317E0D21800E3FB36 /* CDFirstViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36B117E0D21800E3FB36 /* CDFirstViewController_iPhone.xib */; };
-		01BC36B617E0D21800E3FB36 /* CDFirstViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36B417E0D21800E3FB36 /* CDFirstViewController_iPad.xib */; };
-		01BC36B917E0D21800E3FB36 /* CDSecondViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36B717E0D21800E3FB36 /* CDSecondViewController_iPhone.xib */; };
-		01BC36BC17E0D21800E3FB36 /* CDSecondViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36BA17E0D21800E3FB36 /* CDSecondViewController_iPad.xib */; };
+		01BC36CE17E0E33F00E3FB36 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36C817E0E33F00E3FB36 /* first.png */; };
+		01BC36CF17E0E33F00E3FB36 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36C917E0E33F00E3FB36 /* first@2x.png */; };
+		01BC36D017E0E33F00E3FB36 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36CA17E0E33F00E3FB36 /* second.png */; };
+		01BC36D117E0E33F00E3FB36 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36CB17E0E33F00E3FB36 /* second@2x.png */; };
+		01BC36E517E0E73F00E3FB36 /* CDTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BC36E317E0E73F00E3FB36 /* CDTaskViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0188542517F9F3DD0081FC30 /* CDTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTableView.h; sourceTree = "<group>"; };
+		0188542617F9F3DD0081FC30 /* CDTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTableView.m; sourceTree = "<group>"; };
+		0188542B17FA01D30081FC30 /* CDTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTableViewController.h; sourceTree = "<group>"; };
+		0188542C17FA01D30081FC30 /* CDTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTableViewController.m; sourceTree = "<group>"; };
+		0188542F17FA03AF0081FC30 /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
+		0188543017FA03AF0081FC30 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
+		0188543117FA03AF0081FC30 /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
+		0188543217FA03AF0081FC30 /* BNRItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItemStore.m; sourceTree = "<group>"; };
+		0188543817FA20B00081FC30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/HeaderView.xib; sourceTree = SOURCE_ROOT; };
+		0188543B17FA44F10081FC30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/CDTaskViewController_iPad.xib; sourceTree = SOURCE_ROOT; };
+		0188543D17FA44F10081FC30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/CDTaskViewController_iPhone.xib; sourceTree = SOURCE_ROOT; };
 		01BC368817E0D21800E3FB36 /* CheckItDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckItDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01BC368B17E0D21800E3FB36 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		01BC368D17E0D21800E3FB36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -44,16 +59,14 @@
 		01BC36A117E0D21800E3FB36 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		01BC36A317E0D21800E3FB36 /* CDFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDFirstViewController.h; sourceTree = "<group>"; };
 		01BC36A417E0D21800E3FB36 /* CDFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDFirstViewController.m; sourceTree = "<group>"; };
-		01BC36A617E0D21800E3FB36 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
-		01BC36A817E0D21800E3FB36 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		01BC36AA17E0D21800E3FB36 /* CDSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDSecondViewController.h; sourceTree = "<group>"; };
 		01BC36AB17E0D21800E3FB36 /* CDSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDSecondViewController.m; sourceTree = "<group>"; };
-		01BC36AD17E0D21800E3FB36 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
-		01BC36AF17E0D21800E3FB36 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		01BC36B217E0D21800E3FB36 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CDFirstViewController_iPhone.xib; sourceTree = "<group>"; };
-		01BC36B517E0D21800E3FB36 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CDFirstViewController_iPad.xib; sourceTree = "<group>"; };
-		01BC36B817E0D21800E3FB36 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CDSecondViewController_iPhone.xib; sourceTree = "<group>"; };
-		01BC36BB17E0D21800E3FB36 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CDSecondViewController_iPad.xib; sourceTree = "<group>"; };
+		01BC36C817E0E33F00E3FB36 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		01BC36C917E0E33F00E3FB36 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		01BC36CA17E0E33F00E3FB36 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		01BC36CB17E0E33F00E3FB36 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		01BC36E217E0E73F00E3FB36 /* CDTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTaskViewController.h; sourceTree = "<group>"; };
+		01BC36E317E0E73F00E3FB36 /* CDTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTaskViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +83,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0188542217F9F3560081FC30 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0188542517F9F3DD0081FC30 /* CDTableView.h */,
+				0188542617F9F3DD0081FC30 /* CDTableView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0188542A17FA00400081FC30 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0188542B17FA01D30081FC30 /* CDTableViewController.h */,
+				0188542C17FA01D30081FC30 /* CDTableViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0188542E17FA02FB0081FC30 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0188542F17FA03AF0081FC30 /* BNRItem.h */,
+				0188543017FA03AF0081FC30 /* BNRItem.m */,
+				0188543117FA03AF0081FC30 /* BNRItemStore.h */,
+				0188543217FA03AF0081FC30 /* BNRItemStore.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		01BC367F17E0D21700E3FB36 = {
 			isa = PBXGroup;
 			children = (
@@ -100,20 +142,18 @@
 		01BC369117E0D21800E3FB36 /* CheckItDone */ = {
 			isa = PBXGroup;
 			children = (
+				0188542A17FA00400081FC30 /* Controllers */,
+				0188542E17FA02FB0081FC30 /* Models */,
+				0188542217F9F3560081FC30 /* Views */,
 				01BC369A17E0D21800E3FB36 /* CDAppDelegate.h */,
 				01BC369B17E0D21800E3FB36 /* CDAppDelegate.m */,
 				01BC36A317E0D21800E3FB36 /* CDFirstViewController.h */,
 				01BC36A417E0D21800E3FB36 /* CDFirstViewController.m */,
-				01BC36A617E0D21800E3FB36 /* first.png */,
-				01BC36A817E0D21800E3FB36 /* first@2x.png */,
+				01BC36E217E0E73F00E3FB36 /* CDTaskViewController.h */,
+				01BC36E317E0E73F00E3FB36 /* CDTaskViewController.m */,
 				01BC36AA17E0D21800E3FB36 /* CDSecondViewController.h */,
 				01BC36AB17E0D21800E3FB36 /* CDSecondViewController.m */,
-				01BC36AD17E0D21800E3FB36 /* second.png */,
-				01BC36AF17E0D21800E3FB36 /* second@2x.png */,
-				01BC36B117E0D21800E3FB36 /* CDFirstViewController_iPhone.xib */,
-				01BC36B417E0D21800E3FB36 /* CDFirstViewController_iPad.xib */,
-				01BC36B717E0D21800E3FB36 /* CDSecondViewController_iPhone.xib */,
-				01BC36BA17E0D21800E3FB36 /* CDSecondViewController_iPad.xib */,
+				01BC36C617E0E33F00E3FB36 /* Resources */,
 				01BC369217E0D21800E3FB36 /* Supporting Files */,
 			);
 			path = CheckItDone;
@@ -131,6 +171,36 @@
 				01BC36A117E0D21800E3FB36 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		01BC36C617E0E33F00E3FB36 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				01BC36C717E0E33F00E3FB36 /* Images */,
+				01BC36CC17E0E33F00E3FB36 /* Xibs */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		01BC36C717E0E33F00E3FB36 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				01BC36C817E0E33F00E3FB36 /* first.png */,
+				01BC36C917E0E33F00E3FB36 /* first@2x.png */,
+				01BC36CA17E0E33F00E3FB36 /* second.png */,
+				01BC36CB17E0E33F00E3FB36 /* second@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		01BC36CC17E0E33F00E3FB36 /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				0188543717FA20B00081FC30 /* HeaderView.xib */,
+				0188543A17FA44F10081FC30 /* CDTaskViewController_iPad.xib */,
+				0188543C17FA44F10081FC30 /* CDTaskViewController_iPhone.xib */,
+			);
+			path = Xibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,14 +259,13 @@
 				01BC369E17E0D21800E3FB36 /* Default.png in Resources */,
 				01BC36A017E0D21800E3FB36 /* Default@2x.png in Resources */,
 				01BC36A217E0D21800E3FB36 /* Default-568h@2x.png in Resources */,
-				01BC36A717E0D21800E3FB36 /* first.png in Resources */,
-				01BC36A917E0D21800E3FB36 /* first@2x.png in Resources */,
-				01BC36AE17E0D21800E3FB36 /* second.png in Resources */,
-				01BC36B017E0D21800E3FB36 /* second@2x.png in Resources */,
-				01BC36B317E0D21800E3FB36 /* CDFirstViewController_iPhone.xib in Resources */,
-				01BC36B617E0D21800E3FB36 /* CDFirstViewController_iPad.xib in Resources */,
-				01BC36B917E0D21800E3FB36 /* CDSecondViewController_iPhone.xib in Resources */,
-				01BC36BC17E0D21800E3FB36 /* CDSecondViewController_iPad.xib in Resources */,
+				01BC36CE17E0E33F00E3FB36 /* first.png in Resources */,
+				01BC36CF17E0E33F00E3FB36 /* first@2x.png in Resources */,
+				01BC36D017E0E33F00E3FB36 /* second.png in Resources */,
+				01BC36D117E0E33F00E3FB36 /* second@2x.png in Resources */,
+				0188543917FA20B00081FC30 /* HeaderView.xib in Resources */,
+				0188543E17FA44F10081FC30 /* CDTaskViewController_iPad.xib in Resources */,
+				0188543F17FA44F10081FC30 /* CDTaskViewController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,50 +280,47 @@
 				01BC369C17E0D21800E3FB36 /* CDAppDelegate.m in Sources */,
 				01BC36A517E0D21800E3FB36 /* CDFirstViewController.m in Sources */,
 				01BC36AC17E0D21800E3FB36 /* CDSecondViewController.m in Sources */,
+				01BC36E517E0E73F00E3FB36 /* CDTaskViewController.m in Sources */,
+				0188542717F9F3DD0081FC30 /* CDTableView.m in Sources */,
+				0188542D17FA01D30081FC30 /* CDTableViewController.m in Sources */,
+				0188543317FA03AF0081FC30 /* BNRItem.m in Sources */,
+				0188543417FA03AF0081FC30 /* BNRItemStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0188543717FA20B00081FC30 /* HeaderView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0188543817FA20B00081FC30 /* en */,
+			);
+			name = HeaderView.xib;
+			sourceTree = "<group>";
+		};
+		0188543A17FA44F10081FC30 /* CDTaskViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0188543B17FA44F10081FC30 /* en */,
+			);
+			name = CDTaskViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		0188543C17FA44F10081FC30 /* CDTaskViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0188543D17FA44F10081FC30 /* en */,
+			);
+			name = CDTaskViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
 		01BC369417E0D21800E3FB36 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				01BC369517E0D21800E3FB36 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		01BC36B117E0D21800E3FB36 /* CDFirstViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				01BC36B217E0D21800E3FB36 /* en */,
-			);
-			name = CDFirstViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		01BC36B417E0D21800E3FB36 /* CDFirstViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				01BC36B517E0D21800E3FB36 /* en */,
-			);
-			name = CDFirstViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
-		01BC36B717E0D21800E3FB36 /* CDSecondViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				01BC36B817E0D21800E3FB36 /* en */,
-			);
-			name = CDSecondViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		01BC36BA17E0D21800E3FB36 /* CDSecondViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				01BC36BB17E0D21800E3FB36 /* en */,
-			);
-			name = CDSecondViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -359,6 +425,7 @@
 				01BC36C117E0D21800E3FB36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

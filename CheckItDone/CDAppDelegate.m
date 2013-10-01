@@ -9,8 +9,9 @@
 #import "CDAppDelegate.h"
 
 #import "CDFirstViewController.h"
-
 #import "CDSecondViewController.h"
+#import "CDTaskViewController.h"
+#import "CDTableViewController.h"
 
 @implementation CDAppDelegate
 
@@ -21,14 +22,19 @@
     UIViewController *viewController1, *viewController2;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         viewController1 = [[CDFirstViewController alloc] initWithNibName:@"CDFirstViewController_iPhone" bundle:nil];
-        viewController2 = [[CDSecondViewController alloc] initWithNibName:@"CDSecondViewController_iPhone" bundle:nil];
+//        viewController2 = [[CDSecondViewController alloc] initWithNibName:@"CDSecondViewController_iPhone" bundle:nil];
+        viewController2 = [[CDTaskViewController alloc] initWithNibName:@"CDTaskViewController_iPhone" bundle:nil];
     } else {
         viewController1 = [[CDFirstViewController alloc] initWithNibName:@"CDFirstViewController_iPad" bundle:nil];
-        viewController2 = [[CDSecondViewController alloc] initWithNibName:@"CDSecondViewController_iPad" bundle:nil];
+//        viewController2 = [[CDSecondViewController alloc] initWithNibName:@"CDSecondViewController_iPad" bundle:nil];
+        viewController2 = [[CDTaskViewController alloc] initWithNibName:@"CDTaskViewController_iPad" bundle:nil];
     }
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = @[viewController1, viewController2];
     self.window.rootViewController = self.tabBarController;
+/*    CDTableViewController *itemsViewController = [[CDTableViewController alloc]init];
+    
+    [[self window] setRootViewController:itemsViewController]; */
     [self.window makeKeyAndVisible];
     return YES;
 }
