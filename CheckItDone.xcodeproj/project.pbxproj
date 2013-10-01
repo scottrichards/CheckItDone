@@ -14,6 +14,8 @@
 		0188543917FA20B00081FC30 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188543717FA20B00081FC30 /* HeaderView.xib */; };
 		0188543E17FA44F10081FC30 /* CDTaskViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188543A17FA44F10081FC30 /* CDTaskViewController_iPad.xib */; };
 		0188543F17FA44F10081FC30 /* CDTaskViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188543C17FA44F10081FC30 /* CDTaskViewController_iPhone.xib */; };
+		0188544417FB26550081FC30 /* CDFirstViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188544017FB26550081FC30 /* CDFirstViewController_iPad.xib */; };
+		0188544517FB26550081FC30 /* CDFirstViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188544217FB26550081FC30 /* CDFirstViewController_iPhone.xib */; };
 		01BC368C17E0D21800E3FB36 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BC368B17E0D21800E3FB36 /* UIKit.framework */; };
 		01BC368E17E0D21800E3FB36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BC368D17E0D21800E3FB36 /* Foundation.framework */; };
 		01BC369017E0D21800E3FB36 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01BC368F17E0D21800E3FB36 /* CoreGraphics.framework */; };
@@ -44,6 +46,8 @@
 		0188543817FA20B00081FC30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/HeaderView.xib; sourceTree = SOURCE_ROOT; };
 		0188543B17FA44F10081FC30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/CDTaskViewController_iPad.xib; sourceTree = SOURCE_ROOT; };
 		0188543D17FA44F10081FC30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/CDTaskViewController_iPhone.xib; sourceTree = SOURCE_ROOT; };
+		0188544117FB26550081FC30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/CDFirstViewController_iPad.xib; sourceTree = SOURCE_ROOT; };
+		0188544317FB26550081FC30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/CDFirstViewController_iPhone.xib; sourceTree = SOURCE_ROOT; };
 		01BC368817E0D21800E3FB36 /* CheckItDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckItDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01BC368B17E0D21800E3FB36 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		01BC368D17E0D21800E3FB36 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -197,6 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				0188543717FA20B00081FC30 /* HeaderView.xib */,
+				0188544017FB26550081FC30 /* CDFirstViewController_iPad.xib */,
+				0188544217FB26550081FC30 /* CDFirstViewController_iPhone.xib */,
 				0188543A17FA44F10081FC30 /* CDTaskViewController_iPad.xib */,
 				0188543C17FA44F10081FC30 /* CDTaskViewController_iPhone.xib */,
 			);
@@ -266,6 +272,8 @@
 				0188543917FA20B00081FC30 /* HeaderView.xib in Resources */,
 				0188543E17FA44F10081FC30 /* CDTaskViewController_iPad.xib in Resources */,
 				0188543F17FA44F10081FC30 /* CDTaskViewController_iPhone.xib in Resources */,
+				0188544417FB26550081FC30 /* CDFirstViewController_iPad.xib in Resources */,
+				0188544517FB26550081FC30 /* CDFirstViewController_iPhone.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +321,22 @@
 				0188543D17FA44F10081FC30 /* en */,
 			);
 			name = CDTaskViewController_iPhone.xib;
+			sourceTree = "<group>";
+		};
+		0188544017FB26550081FC30 /* CDFirstViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0188544117FB26550081FC30 /* en */,
+			);
+			name = CDFirstViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+		0188544217FB26550081FC30 /* CDFirstViewController_iPhone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0188544317FB26550081FC30 /* en */,
+			);
+			name = CDFirstViewController_iPhone.xib;
 			sourceTree = "<group>";
 		};
 		01BC369417E0D21800E3FB36 /* InfoPlist.strings */ = {
