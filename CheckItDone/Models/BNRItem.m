@@ -87,11 +87,15 @@
 
 - (NSString *)description
 {
+    NSDateFormatter *date_format = [[NSDateFormatter alloc] init];
+    [date_format setDateFormat:@"MM/dd/yyyy"];
+  
+    NSString *dateString = [date_format stringFromDate:dateCreated];
+    
     NSString *descriptionString =
-    [[NSString alloc] initWithFormat:@"%@ (%@): Date %@",
+    [[NSString alloc] initWithFormat:@"%@ Date: %@",
      itemName,
-     serialNumber,
-     dateCreated];
+     dateString];
     return descriptionString;
 }
 - (void)dealloc
