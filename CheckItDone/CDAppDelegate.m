@@ -29,12 +29,15 @@
 //        viewController2 = [[CDSecondViewController alloc] initWithNibName:@"CDSecondViewController_iPad" bundle:nil];
         viewController2 = [[CDTaskViewController alloc] initWithNibName:@"CDTaskViewController_iPad" bundle:nil];
     }
-    self.tabBarController = [[UITabBarController alloc] init];
+/*    self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers = @[viewController1, viewController2];
-    self.window.rootViewController = self.tabBarController;
-/*    CDTableViewController *itemsViewController = [[CDTableViewController alloc]init];
-    
-    [[self window] setRootViewController:itemsViewController]; */
+    self.window.rootViewController = self.tabBarController;*/
+    CDTableViewController *itemsViewController = [[CDTableViewController alloc]init];
+    // Create an instance of a UINavigationController
+    // its stack contains only itemsViewController
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:itemsViewController];
+    [[self window] setRootViewController:navController]; 
     [self.window makeKeyAndVisible];
     return YES;
 }
