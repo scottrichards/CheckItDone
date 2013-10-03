@@ -32,6 +32,8 @@
 		01BC36D017E0E33F00E3FB36 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36CA17E0E33F00E3FB36 /* second.png */; };
 		01BC36D117E0E33F00E3FB36 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36CB17E0E33F00E3FB36 /* second@2x.png */; };
 		01BC36E517E0E73F00E3FB36 /* CDTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BC36E317E0E73F00E3FB36 /* CDTaskViewController.m */; };
+		01EDFECB17FDC7AA009EFB32 /* CDTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01EDFEC917FDC7A9009EFB32 /* CDTaskDetailViewController.m */; };
+		01EDFECF17FDC7F3009EFB32 /* CDTaskDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01EDFECD17FDC7F3009EFB32 /* CDTaskDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,9 @@
 		01BC36CB17E0E33F00E3FB36 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		01BC36E217E0E73F00E3FB36 /* CDTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTaskViewController.h; sourceTree = "<group>"; };
 		01BC36E317E0E73F00E3FB36 /* CDTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTaskViewController.m; sourceTree = "<group>"; };
+		01EDFEC817FDC7A9009EFB32 /* CDTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTaskDetailViewController.h; sourceTree = "<group>"; };
+		01EDFEC917FDC7A9009EFB32 /* CDTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTaskDetailViewController.m; sourceTree = "<group>"; };
+		01EDFECE17FDC7F3009EFB32 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/CDTaskDetailViewController.xib; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +106,8 @@
 			children = (
 				0188542B17FA01D30081FC30 /* CDTableViewController.h */,
 				0188542C17FA01D30081FC30 /* CDTableViewController.m */,
+				01EDFEC817FDC7A9009EFB32 /* CDTaskDetailViewController.h */,
+				01EDFEC917FDC7A9009EFB32 /* CDTaskDetailViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -203,6 +210,7 @@
 				0188543717FA20B00081FC30 /* HeaderView.xib */,
 				0188544017FB26550081FC30 /* CDFirstViewController_iPad.xib */,
 				0188544217FB26550081FC30 /* CDFirstViewController_iPhone.xib */,
+				01EDFECD17FDC7F3009EFB32 /* CDTaskDetailViewController.xib */,
 				0188543A17FA44F10081FC30 /* CDTaskViewController_iPad.xib */,
 				0188543C17FA44F10081FC30 /* CDTaskViewController_iPhone.xib */,
 			);
@@ -238,6 +246,11 @@
 				CLASSPREFIX = CD;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Scott Richards";
+				TargetAttributes = {
+					01BC368717E0D21700E3FB36 = {
+						DevelopmentTeam = KCL29RH4A8;
+					};
+				};
 			};
 			buildConfigurationList = 01BC368317E0D21700E3FB36 /* Build configuration list for PBXProject "CheckItDone" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -274,6 +287,7 @@
 				0188543F17FA44F10081FC30 /* CDTaskViewController_iPhone.xib in Resources */,
 				0188544417FB26550081FC30 /* CDFirstViewController_iPad.xib in Resources */,
 				0188544517FB26550081FC30 /* CDFirstViewController_iPhone.xib in Resources */,
+				01EDFECF17FDC7F3009EFB32 /* CDTaskDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +307,7 @@
 				0188542D17FA01D30081FC30 /* CDTableViewController.m in Sources */,
 				0188543317FA03AF0081FC30 /* BNRItem.m in Sources */,
 				0188543417FA03AF0081FC30 /* BNRItemStore.m in Sources */,
+				01EDFECB17FDC7AA009EFB32 /* CDTaskDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +362,14 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		01EDFECD17FDC7F3009EFB32 /* CDTaskDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01EDFECE17FDC7F3009EFB32 /* en */,
+			);
+			name = CDTaskDetailViewController.xib;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -362,7 +385,8 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Scott Richards (LSDP48E32L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Scott Richards (LSDP48E32L)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -377,6 +401,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -411,10 +437,13 @@
 		01BC36C017E0D21800E3FB36 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CheckItDone/CheckItDone-Prefix.pch";
 				INFOPLIST_FILE = "CheckItDone/CheckItDone-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -422,10 +451,13 @@
 		01BC36C117E0D21800E3FB36 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CheckItDone/CheckItDone-Prefix.pch";
 				INFOPLIST_FILE = "CheckItDone/CheckItDone-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
