@@ -24,7 +24,18 @@
         UINavigationItem *n = [self navigationItem];
         
         [n setTitle:@"To Do"];
+
+        // Create a new bar button item that will send
+        // addNewItem: to ItemsViewController
+        UIBarButtonItem *bbi = [[UIBarButtonItem alloc]
+                                initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                target:self
+                                action:@selector(addNewItem:)];
         
+        // Set this bar button item as the right item in the navigationItem
+        [[self navigationItem] setRightBarButtonItem:bbi];
+        
+        [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
         for (int i = 0; i < 5; i++) {
             [[BNRItemStore sharedStore] createItem];
         } 
@@ -120,7 +131,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
