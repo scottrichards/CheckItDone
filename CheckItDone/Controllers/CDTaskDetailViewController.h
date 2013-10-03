@@ -11,6 +11,7 @@
 
 @interface CDTaskDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *taskName;
-@property (weak, nonatomic) IBOutlet UIDatePicker *dueDate;
+@property (weak, nonatomic) IBOutlet UILabel *dueDate;
+- (IBAction)editDate:(id)sender;
 @property (nonatomic, strong) BNRItem *item;
 @end

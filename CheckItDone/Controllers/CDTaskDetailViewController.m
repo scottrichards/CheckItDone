@@ -35,9 +35,14 @@
     [super viewWillAppear:animated];
     
     [self.taskName setText:[item itemName]];
-        
+    
+    // Create a NSDateFormatter that will turn a date into a simple date string
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    
     // Use filtered NSDate object to set dateLabel contents
-//    [dateLabel setText:[dateFormatter stringFromDate:[item dateCreated]]];
+    [self.dueDate setText:[dateFormatter stringFromDate:[item dateCreated]]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -64,4 +69,6 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)editDate:(id)sender {
+}
 @end
