@@ -52,6 +52,7 @@
     return self;
 }
 
+/*
 - (UIView *)headerView
 {
     // If we haven't loaded the headerView yet...
@@ -77,7 +78,7 @@
         [self setEditing:YES animated:YES];
     }
 }
-
+*/
 - (IBAction)addNewItem:(id)sender {
     // Create a new BNRItem and add it to the store
     BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
@@ -91,7 +92,7 @@
     [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
                             withRowAnimation:UITableViewRowAnimationTop];
 }
-
+/*
 - (UIView *)tableView:(UITableView *)tv viewForHeaderInSection:(NSInteger)sec
 {
     return [self headerView];
@@ -103,7 +104,7 @@
     // view in the XIB file
     return [[self headerView] bounds].size.height;
 }
-
+*/
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];

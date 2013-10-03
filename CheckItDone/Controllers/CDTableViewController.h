@@ -10,11 +10,11 @@
 
 @interface CDTableViewController : UITableViewController
 {
-    IBOutlet UIView *headerView;
+//    IBOutlet UIView *headerView;
 }
 
-- (UIView *)headerView;
-- (IBAction)toggleEditMode:(id)sender;
+//- (UIView *)headerView;
+//- (IBAction)toggleEditMode:(id)sender;
 - (IBAction)addNewItem:(id)sender;
 
 @end
