@@ -43,6 +43,15 @@
     return p;
 }
 
+- (BNRItem *)createBlankItem
+{
+    BNRItem *p = [[BNRItem alloc] init];
+    
+    [allItems addObject:p];
+    
+    return p;
+}
+
 - (void)removeItem:(BNRItem *)p
 {
     [allItems removeObjectIdenticalTo:p];

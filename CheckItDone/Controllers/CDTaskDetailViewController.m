@@ -8,6 +8,8 @@
 
 #import "CDTaskDetailViewController.h"
 #import "BNRItem.h"
+#import "BNRItemStore.h"
+#import "CDDatePickerViewController.h"
 
 @interface CDTaskDetailViewController ()
 
@@ -26,6 +28,28 @@
         [[[self navigationItem] leftBarButtonItem] setTitle:@"Back"];
         [n setTitle:@"Task Details"];
 
+    }
+    return self;
+}
+
+- (id)initForNewItem:(BOOL)isNew
+{
+    self = [super initWithNibName:@"CDTaskDetailViewController" bundle:nil];
+    
+    if (self) {
+        if (isNew) {
+            UIBarButtonItem *doneItem = [[UIBarButtonItem alloc]
+                                         initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                         target:self
+                                         action:@selector(save:)];
+            [[self navigationItem] setRightBarButtonItem:doneItem];
+            
+            UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc]
+                                           initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                           target:self
+                                           action:@selector(cancel:)];
+            [[self navigationItem] setLeftBarButtonItem:cancelItem];
+        }
     }
     return self;
 }
@@ -70,5 +94,29 @@
 }
 
 - (IBAction)editDate:(id)sender {
+    // Create and push Task Detail view controller.
+    CDDatePickerViewController *datePickerViewController = [[CDDatePickerViewController alloc] init];
+    [datePickerViewController setItem:self.item];
+//    [[datePickerViewController datePicker] setDate:[item dateCreated]];
+    [[self navigationController] pushViewController:datePickerViewController
+                                           animated:YES];
+
+    
 }
+
+- (void)save:(id)sender
+{
+    [[self presentingViewController] dismissViewControllerAnimated:YES
+                                                        completion:nil];
+}
+
+- (void)cancel:(id)sender
+{
+    // If the user cancelled, then remove the BNRItem from the store
+    [[BNRItemStore sharedStore] removeItem:item];
+    
+    [[self presentingViewController] dismissViewControllerAnimated:YES
+                                                        completion:nil];
+}
+
 @end

@@ -17,6 +17,7 @@
 + (BNRItemStore *)sharedStore;
 - (NSArray *)allItems;
 - (BNRItem *)createItem;
+- (BNRItem *)createBlankItem;
 - (void)removeItem:(BNRItem *)p;
 - (void)moveItemAtIndex:(int)from toIndex:(int)to;
 @end

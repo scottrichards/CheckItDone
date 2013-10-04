@@ -52,59 +52,21 @@
     return self;
 }
 
-/*
-- (UIView *)headerView
-{
-    // If we haven't loaded the headerView yet...
-    if (!headerView) {
-        // Load HeaderView.xib
-        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
-    }
-    
-    return headerView;
-}
-
-- (IBAction)toggleEditMode:(id)sender {
-    // If we are currently in editing mode...
-    if ([self isEditing]) {
-        // Change text of button to inform user of state
-        [sender setTitle:@"Edit" forState:UIControlStateNormal];
-        // Turn off editing mode
-        [self setEditing:NO animated:YES];
-    } else {
-        // Change text of button to inform user of state
-        [sender setTitle:@"Done" forState:UIControlStateNormal];
-        // Enter editing mode
-        [self setEditing:YES animated:YES];
-    }
-}
-*/
 - (IBAction)addNewItem:(id)sender {
     // Create a new BNRItem and add it to the store
-    BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
+    BNRItem *newItem = [[BNRItemStore sharedStore] createBlankItem];
     
-    // Figure out where that item is in the array
-    int lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
+    CDTaskDetailViewController *detailViewController =
+    [[CDTaskDetailViewController alloc] initForNewItem:YES];
     
-    NSIndexPath *ip = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    [detailViewController setItem:newItem];
     
-    // Insert this new row into the table.
-    [[self tableView] insertRowsAtIndexPaths:[NSArray arrayWithObject:ip]
-                            withRowAnimation:UITableViewRowAnimationTop];
-}
-/*
-- (UIView *)tableView:(UITableView *)tv viewForHeaderInSection:(NSInteger)sec
-{
-    return [self headerView];
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:detailViewController];
+    
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
-- (CGFloat)tableView:(UITableView *)tv heightForHeaderInSection:(NSInteger)sec
-{
-    // The height of the header view should be determined from the height of the
-    // view in the XIB file
-    return [[self headerView] bounds].size.height;
-}
-*/
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -166,25 +128,6 @@
     return cell;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
 - (void)tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -213,15 +156,6 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     [[BNRItemStore sharedStore] moveItemAtIndex:[sourceIndexPath row]
                                         toIndex:[destinationIndexPath row]];
 }
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
