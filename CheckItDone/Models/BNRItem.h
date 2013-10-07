@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BNRItem : NSObject
+@interface BNRItem : NSObject <NSCoding>
 {
+    
 }
-
-+ (id)randomItem;
+- (NSString *)dateString;
+//+ (id)randomItem;
 
 - (id)initWithItemName:(NSString *)name
         valueInDollars:(int)value

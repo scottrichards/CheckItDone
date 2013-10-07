@@ -10,6 +10,7 @@
 #import "BNRItemStore.h"
 #import "BNRItem.h"
 #import "CDTaskDetailViewController.h"
+#import "CDTaskItemViewCell.h"
 
 @interface CDTableViewController ()
 
@@ -36,9 +37,9 @@
         [[self navigationItem] setRightBarButtonItem:bbi];
         
         [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
-        for (int i = 0; i < 5; i++) {
+   /*     for (int i = 0; i < 5; i++) {
             [[BNRItemStore sharedStore] createItem];
-        } 
+        } */
     }
     return self;
 }
@@ -61,8 +62,14 @@
     
     [detailViewController setItem:newItem];
     
+    [detailViewController setDismissBlock:^{
+        [[self tableView] reloadData];
+    }];
+    
     UINavigationController *navController = [[UINavigationController alloc]
                                              initWithRootViewController:detailViewController];
+    
+    [navController setModalPresentationStyle:UIModalPresentationFormSheet];
     
     [self presentViewController:navController animated:YES completion:nil];
 }
@@ -82,6 +89,13 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // Load the NIB file
+    UINib *nib = [UINib nibWithNibName:@"CDTaskItemViewCell" bundle:nil];
+    
+    // Register this NIB which contains the cell
+    [[self tableView] registerNib:nib
+           forCellReuseIdentifier:@"CDTaskItemViewCell"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,12 +121,12 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Check for a reusable cell first, use that if it exists
-    UITableViewCell *cell =
-    [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+ //   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    CDTaskItemViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CDTaskItemViewCell"];
     
     // If there is no reusable cell of this type, create a new one
     if (!cell) {
-        cell = [[UITableViewCell alloc]
+        cell = [[CDTaskItemViewCell alloc]
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:@"UITableViewCell"];
     }
@@ -123,8 +137,9 @@
     BNRItem *p = [[[BNRItemStore sharedStore] allItems]
                   objectAtIndex:[indexPath row]];
     
-    [[cell textLabel] setText:[p description]];
-    
+ //   [[cell textLabel] setText:[p description]];
+    [[cell taskName] setText:[p itemName]];
+    [[cell dueDate] setText:[p dateString]];
     return cell;
 }
 

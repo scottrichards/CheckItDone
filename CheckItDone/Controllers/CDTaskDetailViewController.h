@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dueDate;
 
 @property (strong, nonatomic) BNRItem *item;
+@property (nonatomic, copy) void (^dismissBlock)(void);
 
 - (IBAction)editDate:(id)sender;
 - (id)initForNewItem:(BOOL)isNew;

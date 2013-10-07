@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0131985F17FE0E96000CFC07 /* CDDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131985D17FE0E96000CFC07 /* CDDatePickerViewController.m */; };
 		0131986017FE0E96000CFC07 /* CDDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0131985E17FE0E96000CFC07 /* CDDatePickerViewController.xib */; };
+		016B7CF01801CB8500CC0D95 /* CDTaskItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016B7CEE1801CB8500CC0D95 /* CDTaskItemViewCell.xib */; };
+		016B7CF51801EB6D00CC0D95 /* CDTaskItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016B7CF41801EB6D00CC0D95 /* CDTaskItemViewCell.m */; };
 		0188542717F9F3DD0081FC30 /* CDTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188542617F9F3DD0081FC30 /* CDTableView.m */; };
 		0188542D17FA01D30081FC30 /* CDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188542C17FA01D30081FC30 /* CDTableViewController.m */; };
 		0188543317FA03AF0081FC30 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0188543017FA03AF0081FC30 /* BNRItem.m */; };
@@ -42,6 +44,9 @@
 		0131985C17FE0E96000CFC07 /* CDDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDatePickerViewController.h; sourceTree = "<group>"; };
 		0131985D17FE0E96000CFC07 /* CDDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDDatePickerViewController.m; sourceTree = "<group>"; };
 		0131985E17FE0E96000CFC07 /* CDDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDDatePickerViewController.xib; sourceTree = "<group>"; };
+		016B7CEF1801CB8500CC0D95 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/CDTaskItemViewCell.xib; sourceTree = SOURCE_ROOT; };
+		016B7CF31801EB6D00CC0D95 /* CDTaskItemViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTaskItemViewCell.h; sourceTree = "<group>"; };
+		016B7CF41801EB6D00CC0D95 /* CDTaskItemViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTaskItemViewCell.m; sourceTree = "<group>"; };
 		0188542517F9F3DD0081FC30 /* CDTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTableView.h; sourceTree = "<group>"; };
 		0188542617F9F3DD0081FC30 /* CDTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTableView.m; sourceTree = "<group>"; };
 		0188542B17FA01D30081FC30 /* CDTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDTableViewController.h; sourceTree = "<group>"; };
@@ -102,6 +107,8 @@
 			children = (
 				0188542517F9F3DD0081FC30 /* CDTableView.h */,
 				0188542617F9F3DD0081FC30 /* CDTableView.m */,
+				016B7CF31801EB6D00CC0D95 /* CDTaskItemViewCell.h */,
+				016B7CF41801EB6D00CC0D95 /* CDTaskItemViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -221,6 +228,7 @@
 				01EDFECD17FDC7F3009EFB32 /* CDTaskDetailViewController.xib */,
 				0188543A17FA44F10081FC30 /* CDTaskViewController_iPad.xib */,
 				0188543C17FA44F10081FC30 /* CDTaskViewController_iPhone.xib */,
+				016B7CEE1801CB8500CC0D95 /* CDTaskItemViewCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -297,6 +305,7 @@
 				0188544517FB26550081FC30 /* CDFirstViewController_iPhone.xib in Resources */,
 				01EDFECF17FDC7F3009EFB32 /* CDTaskDetailViewController.xib in Resources */,
 				0131986017FE0E96000CFC07 /* CDDatePickerViewController.xib in Resources */,
+				016B7CF01801CB8500CC0D95 /* CDTaskItemViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,12 +327,21 @@
 				0188543417FA03AF0081FC30 /* BNRItemStore.m in Sources */,
 				01EDFECB17FDC7AA009EFB32 /* CDTaskDetailViewController.m in Sources */,
 				0131985F17FE0E96000CFC07 /* CDDatePickerViewController.m in Sources */,
+				016B7CF51801EB6D00CC0D95 /* CDTaskItemViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		016B7CEE1801CB8500CC0D95 /* CDTaskItemViewCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				016B7CEF1801CB8500CC0D95 /* en */,
+			);
+			name = CDTaskItemViewCell.xib;
+			sourceTree = "<group>";
+		};
 		0188543717FA20B00081FC30 /* HeaderView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

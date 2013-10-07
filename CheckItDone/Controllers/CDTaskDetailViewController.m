@@ -18,6 +18,7 @@
 @implementation CDTaskDetailViewController
 
 @synthesize item;
+@synthesize dismissBlock;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -84,7 +85,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [[self view] setBackgroundColor:[UIColor colorWithWhite:.8 alpha:1]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,7 +108,7 @@
 - (void)save:(id)sender
 {
     [[self presentingViewController] dismissViewControllerAnimated:YES
-                                                        completion:nil];
+                                                        completion:dismissBlock];
 }
 
 - (void)cancel:(id)sender
@@ -116,7 +117,7 @@
     [[BNRItemStore sharedStore] removeItem:item];
     
     [[self presentingViewController] dismissViewControllerAnimated:YES
-                                                        completion:nil];
+                                                        completion:dismissBlock];
 }
 
 @end

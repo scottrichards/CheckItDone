@@ -13,6 +13,7 @@
 @synthesize containedItem;
 @synthesize itemName, serialNumber, dateCreated, valueInDollars;
 
+/*
 + (id)randomItem
 {
     // Create an array of three adjectives
@@ -50,6 +51,7 @@
                       serialNumber:randomSerialNumber];
     return newItem;
 }
+*/
 
 - (id)initWithItemName:(NSString *)name
         valueInDollars:(int)value
@@ -85,22 +87,44 @@
     [i setContainer:self];
 }
 
-- (NSString *)description
+- (NSString *)dateString
 {
     NSDateFormatter *date_format = [[NSDateFormatter alloc] init];
-    [date_format setDateFormat:@"MM/dd/yyyy"];
+    [date_format setDateFormat:@"MM/dd"];
   
     NSString *dateString = [date_format stringFromDate:dateCreated];
     
-    NSString *descriptionString =
-    [[NSString alloc] initWithFormat:@"%@ Date: %@",
-     itemName,
-     dateString];
-    return descriptionString;
+    return dateString;
 }
+
 - (void)dealloc
 {
     NSLog(@"Destroyed: %@ ", self);
+}
+
+#pragma mark Encoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:itemName forKey:@"itemName"];
+    [aCoder encodeObject:serialNumber forKey:@"serialNumber"];
+    [aCoder encodeObject:dateCreated forKey:@"dateCreated"];
+    
+    [aCoder encodeInt:valueInDollars forKey:@"valueInDollars"];
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        [self setItemName:[aDecoder decodeObjectForKey:@"itemName"]];
+        [self setSerialNumber:[aDecoder decodeObjectForKey:@"serialNumber"]];
+        
+        [self setValueInDollars:[aDecoder decodeIntForKey:@"valueInDollars"]];
+        
+        dateCreated = [aDecoder decodeObjectForKey:@"dateCreated"];
+    }
+    return self;
 }
 
 @end

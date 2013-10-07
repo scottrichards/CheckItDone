@@ -20,4 +20,7 @@
 - (BNRItem *)createBlankItem;
 - (void)removeItem:(BNRItem *)p;
 - (void)moveItemAtIndex:(int)from toIndex:(int)to;
+- (NSString *)itemArchivePath;
+- (BOOL)saveChanges;
+
 @end
