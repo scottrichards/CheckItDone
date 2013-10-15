@@ -1,22 +1,22 @@
 //
-//  CDTableViewController.m
+//  CDListViewController.m
 //  CheckItDone
 //
-//  Created by Scott Richards on 9/30/13.
+//  Created by Scott Richards on 10/10/13.
 //  Copyright (c) 2013 Scott Richards. All rights reserved.
 //
 
+#import "CDListViewController.h"
+#import "CDList.h"
+#import "CDListStore.h"
 #import "CDTableViewController.h"
 #import "BNRItemStore.h"
-#import "BNRItem.h"
-#import "CDTaskDetailViewController.h"
-#import "CDTaskItemViewCell.h"
 
-@interface CDTableViewController ()
+@interface CDListViewController ()
 
 @end
 
-@implementation CDTableViewController
+@implementation CDListViewController
 
 - (id)init
 {
@@ -24,8 +24,8 @@
     if (self) {
         UINavigationItem *n = [self navigationItem];
         
-        [n setTitle:@"To Do"];
-
+        [n setTitle:@"Lists"];
+        
         // Create a new bar button item that will send
         // addNewItem: to ItemsViewController
         UIBarButtonItem *bbi = [[UIBarButtonItem alloc]
@@ -37,10 +37,10 @@
         [[self navigationItem] setRightBarButtonItem:bbi];
         
         [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
-
     }
     return self;
 }
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -49,27 +49,6 @@
         // Custom initialization
     }
     return self;
-}
-
-- (IBAction)addNewItem:(id)sender {
-    // Create a new BNRItem and add it to the store
-    BNRItem *newItem = [[BNRItemStore sharedStore] createBlankItem];
-    
-    CDTaskDetailViewController *detailViewController =
-    [[CDTaskDetailViewController alloc] initForNewItem:YES];
-    
-    [detailViewController setItem:newItem];
-    
-    [detailViewController setDismissBlock:^{
-        [[self tableView] reloadData];
-    }];
-    
-    UINavigationController *navController = [[UINavigationController alloc]
-                                             initWithRootViewController:detailViewController];
-    
-    [navController setModalPresentationStyle:UIModalPresentationFormSheet];
-    
-    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -87,19 +66,35 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    // Load the NIB file
-    UINib *nib = [UINib nibWithNibName:@"CDTaskItemViewCell" bundle:nil];
-    
-    // Register this NIB which contains the cell
-    [[self tableView] registerNib:nib
-           forCellReuseIdentifier:@"CDTaskItemViewCell"];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)addNewItem:(id)sender {
+    // Create a new BNRItem and add it to the store
+    CDList *newItem = [[CDListStore sharedStore] createBlankList];
+    [[self tableView] reloadData];
+/*
+    CDTaskDetailViewController *detailViewController =
+    [[CDTaskDetailViewController alloc] initForNewItem:YES];
+    
+    [detailViewController setItem:newItem];
+    
+    [detailViewController setDismissBlock:^{
+        [[self tableView] reloadData];
+    }];
+    
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:detailViewController];
+    
+    [navController setModalPresentationStyle:UIModalPresentationFormSheet];
+    
+    [self presentViewController:navController animated:YES completion:nil];
+ */
 }
 
 #pragma mark - Table view data source
@@ -112,34 +107,30 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[BNRItemStore sharedStore] allItems] count];
+    // Return the number of rows in the section.
+    return [[[CDListStore sharedStore] allLists] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Check for a reusable cell first, use that if it exists
- //   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-    CDTaskItemViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CDTaskItemViewCell"];
-    
+    UITableViewCell *cell =
+    [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     // If there is no reusable cell of this type, create a new one
     if (!cell) {
-        cell = [[CDTaskItemViewCell alloc]
+        cell = [[UITableViewCell alloc]
                 initWithStyle:UITableViewCellStyleDefault
                 reuseIdentifier:@"UITableViewCell"];
     }
-    
-    // Set the text on the cell with the description of the item
-    // that is at the nth index of items, where n = row this cell
-    // will appear in on the tableview
-    BNRItem *p = [[[BNRItemStore sharedStore] allItems]
+
+    // Configure the cell...
+    CDList *list = [[[CDListStore sharedStore] allLists]
                   objectAtIndex:[indexPath row]];
-    
- //   [[cell textLabel] setText:[p description]];
-    [[cell taskName] setText:[p itemName]];
-    [[cell dueDate] setText:[p dateString]];
+
+    [[cell textLabel] setText:[list listName]];
     return cell;
 }
+
 
 - (void)tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
@@ -148,10 +139,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     // If the table view is asking to commit a delete command...
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        BNRItemStore *ps = [BNRItemStore sharedStore];
-        NSArray *items = [ps allItems];
-        BNRItem *p = [items objectAtIndex:[indexPath row]];
-        [ps removeItem:p];
+        CDListStore *listStore = [CDListStore sharedStore];
+        NSArray *lists = [listStore allLists];
+        CDList *list = [lists objectAtIndex:[indexPath row]];
+        [listStore removeItem:list];
         
         // We also remove that row from the table view with an animation
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
@@ -166,28 +157,55 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
       toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    [[BNRItemStore sharedStore] moveItemAtIndex:[sourceIndexPath row]
+    [[CDListStore sharedStore] moveItemAtIndex:[sourceIndexPath row]
                                         toIndex:[destinationIndexPath row]];
 }
+
+
+
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Create and push Task Detail view controller.
-    CDTaskDetailViewController *detailViewController = [[CDTaskDetailViewController alloc] init];
+    CDTableViewController *tableViewController = [[CDTableViewController alloc] init];
     
-    NSArray *items = [[BNRItemStore sharedStore] allItems];
-    BNRItem *selectedItem = [items objectAtIndex:[indexPath row]];
+    CDListStore *listStore = [CDListStore sharedStore];
+    NSArray *lists = [listStore allLists];
+    CDList *list = [lists objectAtIndex:[indexPath row]];
     
     // Give detail view controller a pointer to the item object in row
-    [detailViewController setItem:selectedItem];
+    [tableViewController setTableItem:list];
     
     // Push it onto the top of the navigation controller's stack
-    [[self navigationController] pushViewController:detailViewController
+    [[self navigationController] pushViewController:tableViewController
                                            animated:YES];
 }
-
-
 
 @end

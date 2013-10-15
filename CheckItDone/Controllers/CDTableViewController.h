@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CDList;
 
 @interface CDTableViewController : UITableViewController
 {
 //    IBOutlet UIView *headerView;
 }
+
+@property (strong, nonatomic) CDList *tableItem;
 
 //- (UIView *)headerView;
 //- (IBAction)toggleEditMode:(id)sender;

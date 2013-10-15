@@ -13,45 +13,6 @@
 @synthesize containedItem;
 @synthesize itemName, serialNumber, dateCreated, valueInDollars;
 
-/*
-+ (id)randomItem
-{
-    // Create an array of three adjectives
-    NSArray *randomAdjectiveList = [NSArray arrayWithObjects:@"Fluffy",
-                                    @"Rusty",
-                                    @"Shiny", nil];
-    // Create an array of three nouns
-    NSArray *randomNounList = [NSArray arrayWithObjects:@"Bear",
-                               @"Spork",
-                               @"Mac", nil];
-    // Get the index of a random adjective/noun from the lists
-    // Note: The % operator, called the modulo operator, gives
-    // you the remainder. So adjectiveIndex is a random number
-    // from 0 to 2 inclusive.
-    NSInteger adjectiveIndex = rand() % [randomAdjectiveList count];
-    NSInteger nounIndex = rand() % [randomNounList count];
-    
-    // Note that NSInteger is not an object, but a type definition
-    // for "unsigned long"
-    
-    NSString *randomName = [NSString stringWithFormat:@"%@ %@",
-                            [randomAdjectiveList objectAtIndex:adjectiveIndex],
-                            [randomNounList objectAtIndex:nounIndex]];
-    int randomValue = rand() % 100;
-    NSString *randomSerialNumber = [NSString stringWithFormat:@"%c%c%c%c%c",
-                                    '0' + rand() % 10,
-                                    'A' + rand() % 26,
-                                    '0' + rand() % 10,
-                                    'A' + rand() % 26,
-                                    '0' + rand() % 10];
-    // Once again, ignore the memory problems with this method
-    BNRItem *newItem =
-    [[self alloc] initWithItemName:randomName
-                    valueInDollars:randomValue
-                      serialNumber:randomSerialNumber];
-    return newItem;
-}
-*/
 
 - (id)initWithItemName:(NSString *)name
         valueInDollars:(int)value
