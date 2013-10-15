@@ -51,6 +51,44 @@
     return self;
 }
 
+- (UIView *)headerView
+{
+    // If we haven't loaded the headerView yet...
+    if (!headerView) {
+        // Load HeaderView.xib
+        [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
+    }
+    
+    return headerView;
+}
+
+- (UIView *)tableView:(UITableView *)tv viewForHeaderInSection:(NSInteger)sec
+{
+    return [self headerView];
+}
+
+- (CGFloat)tableView:(UITableView *)tv heightForHeaderInSection:(NSInteger)sec
+{
+    // The height of the header view should be determined from the height of the
+    // view in the XIB file
+    return [[self headerView] bounds].size.height;
+}
+
+- (IBAction)toggleEditMode:(id)sender {
+    // If we are currently in editing mode...
+    if ([self isEditing]) {
+        // Change text of button to inform user of state
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        // Turn off editing mode
+        [self setEditing:NO animated:YES];
+    } else {
+        // Change text of button to inform user of state
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        // Enter editing mode
+        [self setEditing:YES animated:YES];
+    }
+}
+
 - (IBAction)addNewItem:(id)sender {
     // Create a new BNRItem and add it to the store
     BNRItem *newItem = [[BNRItemStore sharedStore] createBlankItem];

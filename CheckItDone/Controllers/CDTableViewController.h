@@ -11,13 +11,13 @@
 
 @interface CDTableViewController : UITableViewController
 {
-//    IBOutlet UIView *headerView;
+    IBOutlet UIView *headerView;
 }
 
 @property (strong, nonatomic) CDList *tableItem;
 
-//- (UIView *)headerView;
-//- (IBAction)toggleEditMode:(id)sender;
+- (UIView *)headerView;
+- (IBAction)toggleEditMode:(id)sender;
 - (IBAction)addNewItem:(id)sender;
 
 @end
