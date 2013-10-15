@@ -13,6 +13,7 @@
 #import "CDTaskViewController.h"
 #import "CDTableViewController.h"
 #import "BNRItemStore.h"
+#import "CDListViewController.h"
 
 @implementation CDAppDelegate
 
@@ -20,20 +21,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *viewController1, *viewController2;
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        viewController1 = [[CDFirstViewController alloc] initWithNibName:@"CDFirstViewController_iPhone" bundle:nil];
-//        viewController2 = [[CDSecondViewController alloc] initWithNibName:@"CDSecondViewController_iPhone" bundle:nil];
-        viewController2 = [[CDTaskViewController alloc] initWithNibName:@"CDTaskViewController_iPhone" bundle:nil];
-    } else {
-        viewController1 = [[CDFirstViewController alloc] initWithNibName:@"CDFirstViewController_iPad" bundle:nil];
-//        viewController2 = [[CDSecondViewController alloc] initWithNibName:@"CDSecondViewController_iPad" bundle:nil];
-        viewController2 = [[CDTaskViewController alloc] initWithNibName:@"CDTaskViewController_iPad" bundle:nil];
-    }
-/*    self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[viewController1, viewController2];
-    self.window.rootViewController = self.tabBarController;*/
-    CDTableViewController *itemsViewController = [[CDTableViewController alloc]init];
+
+//    CDTableViewController *itemsViewController = [[CDTableViewController alloc]init];
+    CDListViewController *itemsViewController = [[CDListViewController alloc]init];
     // Create an instance of a UINavigationController
     // its stack contains only itemsViewController
     UINavigationController *navController = [[UINavigationController alloc]
