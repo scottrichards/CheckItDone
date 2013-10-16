@@ -14,6 +14,7 @@
 #import "CDTableViewController.h"
 #import "BNRItemStore.h"
 #import "CDListViewController.h"
+#import "CDListStore.h"
 
 @implementation CDAppDelegate
 
@@ -46,6 +47,12 @@
         NSLog(@"Saved all of the BNRItems");
     } else {
         NSLog(@"Could not save any of the BNRItems");
+    }
+    success = [[CDListStore sharedStore] saveChanges];
+    if (success) {
+        NSLog(@"Saved all of the Lists");
+    } else {
+        NSLog(@"Could not save any of the Lists");
     }
 }
 

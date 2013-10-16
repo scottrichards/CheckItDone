@@ -34,8 +34,6 @@
     [self.view addSubview:tableViewController.tableView];
 }
 
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
