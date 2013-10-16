@@ -20,5 +20,23 @@
     
     return self;
 }
+#pragma mark Encoding
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:_listName forKey:@"itemName"];
+//    [aCoder encodeObject:_taskList forKey:@"taskList"];
+   
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        [self setListName:[aDecoder decodeObjectForKey:@"itemName"]];
+ //       [self setTaskList:[aDecoder decodeObjectForKey:@"taskList"]];
+    }
+    return self;
+}
 
 @end

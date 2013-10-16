@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		011288BD180EEA6300346C78 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 011288BC180EEA6300346C78 /* CoreData.framework */; };
 		0131985F17FE0E96000CFC07 /* CDDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131985D17FE0E96000CFC07 /* CDDatePickerViewController.m */; };
 		0131986017FE0E96000CFC07 /* CDDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0131985E17FE0E96000CFC07 /* CDDatePickerViewController.xib */; };
 		0168B8E5180784F700750A7F /* CDListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0168B8E4180784F700750A7F /* CDListViewController.m */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		011288BC180EEA6300346C78 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0131985C17FE0E96000CFC07 /* CDDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDatePickerViewController.h; sourceTree = "<group>"; };
 		0131985D17FE0E96000CFC07 /* CDDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDDatePickerViewController.m; sourceTree = "<group>"; };
 		0131985E17FE0E96000CFC07 /* CDDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDDatePickerViewController.xib; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				011288BD180EEA6300346C78 /* CoreData.framework in Frameworks */,
 				01BC368C17E0D21800E3FB36 /* UIKit.framework in Frameworks */,
 				01BC368E17E0D21800E3FB36 /* Foundation.framework in Frameworks */,
 				01BC369017E0D21800E3FB36 /* CoreGraphics.framework in Frameworks */,
@@ -125,15 +128,15 @@
 		0188542A17FA00400081FC30 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0188542B17FA01D30081FC30 /* CDTableViewController.h */,
-				0188542C17FA01D30081FC30 /* CDTableViewController.m */,
-				01EDFEC817FDC7A9009EFB32 /* CDTaskDetailViewController.h */,
-				01EDFEC917FDC7A9009EFB32 /* CDTaskDetailViewController.m */,
 				0131985C17FE0E96000CFC07 /* CDDatePickerViewController.h */,
 				0131985D17FE0E96000CFC07 /* CDDatePickerViewController.m */,
 				0131985E17FE0E96000CFC07 /* CDDatePickerViewController.xib */,
 				0168B8E3180784F700750A7F /* CDListViewController.h */,
 				0168B8E4180784F700750A7F /* CDListViewController.m */,
+				0188542B17FA01D30081FC30 /* CDTableViewController.h */,
+				0188542C17FA01D30081FC30 /* CDTableViewController.m */,
+				01EDFEC817FDC7A9009EFB32 /* CDTaskDetailViewController.h */,
+				01EDFEC917FDC7A9009EFB32 /* CDTaskDetailViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 		01BC367F17E0D21700E3FB36 = {
 			isa = PBXGroup;
 			children = (
+				011288BC180EEA6300346C78 /* CoreData.framework */,
 				01BC369117E0D21800E3FB36 /* CheckItDone */,
 				01BC368A17E0D21800E3FB36 /* Frameworks */,
 				01BC368917E0D21800E3FB36 /* Products */,
