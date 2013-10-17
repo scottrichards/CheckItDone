@@ -21,6 +21,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.dataModel = [[CDDataModel alloc] init];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
@@ -32,7 +33,6 @@
                                              initWithRootViewController:itemsViewController];
     [[self window] setRootViewController:navController]; 
     [self.window makeKeyAndVisible];
-//    self.dataModel = [[CDDataModel alloc] init];
     return YES;
 }
 
@@ -44,8 +44,8 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    BOOL success = [[CDTaskStore sharedStore] saveChanges];
-//    BOOL success = [self.dataModel saveChanges];
+//    BOOL success = [[CDTaskStore sharedStore] saveChanges];
+    BOOL success = [self.dataModel saveChanges];
     if (success) {
         NSLog(@"Saved all of the BNRItems");
     } else {
