@@ -13,7 +13,7 @@
 {
     IBOutlet UIView *headerView;
 }
-
+@property (weak, nonatomic) IBOutlet UILabel *listName;
 @property (strong, nonatomic) CDList *tableItem;
 
 - (UIView *)headerView;

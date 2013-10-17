@@ -7,8 +7,8 @@
 //
 
 #import "CDTaskDetailViewController.h"
-#import "BNRItem.h"
-#import "BNRItemStore.h"
+#import "CDTask.h"
+#import "CDTaskStore.h"
 #import "CDDatePickerViewController.h"
 
 @interface CDTaskDetailViewController ()
@@ -59,7 +59,7 @@
 {
     [super viewWillAppear:animated];
     
-    [self.taskName setText:[item itemName]];
+    [self.taskName setText:[item name]];
     
     // Create a NSDateFormatter that will turn a date into a simple date string
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -67,7 +67,10 @@
     [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     
     // Use filtered NSDate object to set dateLabel contents
-    [self.dueDate setText:[dateFormatter stringFromDate:[item dateCreated]]];
+//    [self.dueDate setText:[dateFormatter stringFromDate:[item date]]];
+    // Convert time interval to NSDate
+    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:[item date]];
+    [self.dueDate setText:[dateFormatter stringFromDate:date]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -78,7 +81,7 @@
     [[self view] endEditing:YES];
     
     // "Save" changes to item
-    [item setItemName:[self.taskName text]];
+    [item setName:[self.taskName text]];
 }
 
 
@@ -114,7 +117,7 @@
 - (void)cancel:(id)sender
 {
     // If the user cancelled, then remove the BNRItem from the store
-    [[BNRItemStore sharedStore] removeItem:item];
+    [[CDTaskStore sharedStore] removeItem:item];
     
     [[self presentingViewController] dismissViewControllerAnimated:YES
                                                         completion:dismissBlock];

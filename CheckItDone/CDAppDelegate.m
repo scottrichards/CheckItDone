@@ -12,9 +12,10 @@
 #import "CDSecondViewController.h"
 #import "CDTaskViewController.h"
 #import "CDTableViewController.h"
-#import "BNRItemStore.h"
+#import "CDTaskStore.h"
 #import "CDListViewController.h"
 #import "CDListStore.h"
+#import "CDDataModel.h"
 
 @implementation CDAppDelegate
 
@@ -31,6 +32,7 @@
                                              initWithRootViewController:itemsViewController];
     [[self window] setRootViewController:navController]; 
     [self.window makeKeyAndVisible];
+//    self.dataModel = [[CDDataModel alloc] init];
     return YES;
 }
 
@@ -42,7 +44,8 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    BOOL success = [[BNRItemStore sharedStore] saveChanges];
+    BOOL success = [[CDTaskStore sharedStore] saveChanges];
+//    BOOL success = [self.dataModel saveChanges];
     if (success) {
         NSLog(@"Saved all of the BNRItems");
     } else {

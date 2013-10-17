@@ -7,7 +7,7 @@
 //
 
 #import "CDList.h"
-#import "BNRItemStore.h"
+#import "CDTaskStore.h"
 
 @implementation CDList
 
@@ -15,7 +15,7 @@
 {
     self = [super init];
     if (self) {
-        self.taskList = [[BNRItemStore alloc] init];
+        self.taskList = [[CDTaskStore alloc] init];
     }
     
     return self;

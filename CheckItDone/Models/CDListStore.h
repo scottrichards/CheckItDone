@@ -12,6 +12,8 @@
 @interface CDListStore : NSObject
 {
     NSMutableArray *allLists;
+    NSManagedObjectContext *context;
+    NSManagedObjectModel *model;
 }
 
 + (CDListStore *)sharedStore;

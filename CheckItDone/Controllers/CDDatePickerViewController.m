@@ -40,7 +40,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.datePicker setDate:[item dateCreated]];
+    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:[item date]];
+    [self.datePicker setDate:date];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -51,7 +52,8 @@
     [[self view] endEditing:YES];
     
     // "Save" changes to item
-    [item setDateCreated:[self.datePicker date]];
+    NSTimeInterval timeInterval = [[self.datePicker date] timeIntervalSinceReferenceDate];
+    [item setDate:timeInterval];
 }
 
 - (IBAction)selectDate:(id)sender {

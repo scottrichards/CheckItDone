@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BNRItem.h"
+#import "CDTask.h"
 
 @interface CDTaskDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *taskName;
 @property (weak, nonatomic) IBOutlet UILabel *dueDate;
 
-@property (strong, nonatomic) BNRItem *item;
+@property (strong, nonatomic) CDTask *item;
 @property (nonatomic, copy) void (^dismissBlock)(void);
 
 - (IBAction)editDate:(id)sender;

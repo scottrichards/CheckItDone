@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-@class BNRItemStore;
+@class CDTaskStore;
 
 @interface CDList : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString *listName;
-@property (strong, nonatomic) BNRItemStore *taskList;
+@property (weak, nonatomic) NSString *name;
+@property (strong, nonatomic) CDTaskStore *taskList;
 @end

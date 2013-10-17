@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BNRItem.h"
+#import "CDTask.h"
 
 @interface CDDatePickerViewController : UIViewController
-@property (strong, nonatomic) BNRItem *item;
+@property (strong, nonatomic) CDTask *item;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) NSDate *dueDate;
 - (IBAction)selectDate:(id)sender;

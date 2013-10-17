@@ -10,7 +10,7 @@
 #import "CDList.h"
 #import "CDListStore.h"
 #import "CDTableViewController.h"
-#import "BNRItemStore.h"
+#import "CDTaskStore.h"
 
 @interface CDListViewController ()
 

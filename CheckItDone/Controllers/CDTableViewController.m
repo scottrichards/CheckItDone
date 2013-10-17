@@ -7,8 +7,8 @@
 //
 
 #import "CDTableViewController.h"
-#import "BNRItemStore.h"
-#import "BNRItem.h"
+#import "CDTaskStore.h"
+#import "CDTask.h"
 #import "CDTaskDetailViewController.h"
 #import "CDTaskItemViewCell.h"
 
@@ -91,7 +91,7 @@
 
 - (IBAction)addNewItem:(id)sender {
     // Create a new BNRItem and add it to the store
-    BNRItem *newItem = [[BNRItemStore sharedStore] createBlankItem];
+    CDTask *newItem = [[CDTaskStore sharedStore] createItem];
     
     CDTaskDetailViewController *detailViewController =
     [[CDTaskDetailViewController alloc] initForNewItem:YES];
@@ -128,7 +128,8 @@
     
     // Load the NIB file
     UINib *nib = [UINib nibWithNibName:@"CDTaskItemViewCell" bundle:nil];
-    
+// TO DO set name to tableItem.name
+    [self.listName setText:@"Hello"];
     // Register this NIB which contains the cell
     [[self tableView] registerNib:nib
            forCellReuseIdentifier:@"CDTaskItemViewCell"];
@@ -150,12 +151,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[BNRItemStore sharedStore] allItems] count];
+    return [[[CDTaskStore sharedStore] allItems] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    static NSDateFormatter *dateFormatter  = nil;
+    if (!dateFormatter) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    }
+    
     // Check for a reusable cell first, use that if it exists
  //   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     CDTaskItemViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CDTaskItemViewCell"];
@@ -170,12 +178,13 @@
     // Set the text on the cell with the description of the item
     // that is at the nth index of items, where n = row this cell
     // will appear in on the tableview
-    BNRItem *p = [[[BNRItemStore sharedStore] allItems]
+    CDTask *task = [[[CDTaskStore sharedStore] allItems]
                   objectAtIndex:[indexPath row]];
     
  //   [[cell textLabel] setText:[p description]];
-    [[cell taskName] setText:[p itemName]];
-    [[cell dueDate] setText:[p dateString]];
+    [[cell taskName] setText:[task name]];
+    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:[task date]];
+    [[cell dueDate] setText:[dateFormatter stringFromDate:date]];
     return cell;
 }
 
@@ -186,9 +195,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     // If the table view is asking to commit a delete command...
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        BNRItemStore *ps = [BNRItemStore sharedStore];
+        CDTaskStore *ps = [CDTaskStore sharedStore];
         NSArray *items = [ps allItems];
-        BNRItem *p = [items objectAtIndex:[indexPath row]];
+        CDTask *p = [items objectAtIndex:[indexPath row]];
         [ps removeItem:p];
         
         // We also remove that row from the table view with an animation
@@ -204,7 +213,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
       toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    [[BNRItemStore sharedStore] moveItemAtIndex:[sourceIndexPath row]
+    [[CDTaskStore sharedStore] moveItemAtIndex:[sourceIndexPath row]
                                         toIndex:[destinationIndexPath row]];
 }
 
@@ -215,8 +224,8 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     // Create and push Task Detail view controller.
     CDTaskDetailViewController *detailViewController = [[CDTaskDetailViewController alloc] init];
     
-    NSArray *items = [[BNRItemStore sharedStore] allItems];
-    BNRItem *selectedItem = [items objectAtIndex:[indexPath row]];
+    NSArray *items = [[CDTaskStore sharedStore] allItems];
+    CDTask *selectedItem = [items objectAtIndex:[indexPath row]];
     
     // Give detail view controller a pointer to the item object in row
     [detailViewController setItem:selectedItem];

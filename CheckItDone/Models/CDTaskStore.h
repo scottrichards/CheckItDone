@@ -7,20 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
-@class BNRItem;
+@class CDTask;
+@class CDDataModel;
 
-@interface BNRItemStore : NSObject
+@interface CDTaskStore : NSObject
 {
     NSMutableArray *allItems;
+    NSManagedObjectContext *context;
+    NSManagedObjectModel *model;
+    
 }
 
-+ (BNRItemStore *)sharedStore;
+@property (strong, nonatomic) CDDataModel *dataModel;
+
++ (CDTaskStore *)sharedStore;
 - (NSArray *)allItems;
-- (BNRItem *)createItem;
-- (BNRItem *)createBlankItem;
-- (void)removeItem:(BNRItem *)p;
+- (CDTask *)createItem;
+- (CDTask *)createBlankItem;
+- (void)removeItem:(CDTask *)p;
 - (void)moveItemAtIndex:(int)from toIndex:(int)to;
 - (NSString *)itemArchivePath;
 - (BOOL)saveChanges;
+- (void)loadAllItems;
 
 @end
