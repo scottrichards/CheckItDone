@@ -11,9 +11,13 @@
 
 @interface CDDataModel : NSObject
 {
+    @public
     NSManagedObjectContext *context;
     NSManagedObjectModel *model;
 }
+
+//@property (strong,nonatomic) NSManagedObjectContext *context;
+//@property (strong,nonatomic) NSManagedObjectModel *model;
 
 - (NSString *)itemArchivePath;
 - (BOOL)saveChanges;

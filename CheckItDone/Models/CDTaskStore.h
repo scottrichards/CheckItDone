@@ -15,7 +15,6 @@
     NSMutableArray *allItems;
     NSManagedObjectContext *context;
     NSManagedObjectModel *model;
-    
 }
 
 @property (strong, nonatomic) CDDataModel *dataModel;
@@ -26,8 +25,6 @@
 - (CDTask *)createBlankItem;
 - (void)removeItem:(CDTask *)p;
 - (void)moveItemAtIndex:(int)from toIndex:(int)to;
-- (NSString *)itemArchivePath;
-- (BOOL)saveChanges;
 - (void)loadAllItems;
 
 @end

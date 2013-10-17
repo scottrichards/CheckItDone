@@ -25,44 +25,11 @@
 {
     self = [super init];
     if (self) {
-//        CDAppDelegate *appDelegate = [NSApp delegate];
-  //      model = [[NSApp delegate] dataModel];
-/*  ARCHIVE METHOD NO LONGER USED
-        NSString *path = [self itemArchivePath];
-        allItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-        
-        // If the array hadn't been saved previously, create a new empty one
-        if (!allItems)
-            allItems = [[NSMutableArray alloc] init];
- */
-        // Read in Homepwner.xcdatamodeld
-       model = [NSManagedObjectModel mergedModelFromBundles:nil];
-        
-        NSPersistentStoreCoordinator *psc =
-        [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
-        
-        // Where does the SQLite file go?
-        NSString *path = [self itemArchivePath];
-        NSURL *storeURL = [NSURL fileURLWithPath:path];
-        
-        NSError *error = nil;
-        
-        if (![psc addPersistentStoreWithType:NSSQLiteStoreType
-                               configuration:nil
-                                         URL:storeURL
-                                     options:nil
-                                       error:&error]) {
-            [NSException raise:@"Open failed"
-                        format:@"Reason: %@", [error localizedDescription]];
-        }
-        
-        // Create the managed object context
-        context = [[NSManagedObjectContext alloc] init];
-        [context setPersistentStoreCoordinator:psc];
-        
-        // The managed object context can manage undo, but we don't need it
-        [context setUndoManager:nil];
-        
+        CDAppDelegate *appDelegate = (CDAppDelegate *)[[UIApplication sharedApplication] delegate];
+        CDDataModel *dataModel = [appDelegate dataModel];
+        self.dataModel = dataModel;
+        model = self.dataModel->model;
+        context = dataModel->context;
         [self loadAllItems];
     }
     
@@ -87,7 +54,7 @@
     NSLog(@"Adding after %d items, order = %.2f", [allItems count], order);
     
     CDTask *task = [NSEntityDescription insertNewObjectForEntityForName:@"CDTask"
-                                               inManagedObjectContext:context];
+                                               inManagedObjectContext:self.dataModel->context];
     
     [task setOrderingValue:order];
     
@@ -148,37 +115,6 @@
     double newOrderValue = (lowerBound + upperBound) / 2.0;
     
     [task setOrderingValue:newOrderValue];
-}
-
-
-- (NSString *)itemArchivePath
-{
-    NSArray *documentDirectories =
-    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                        NSUserDomainMask, YES);
-    
-    // Get one and only document directory from that list
-    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
-    
-//    return [documentDirectory stringByAppendingPathComponent:@"tasks.archive"];
-    return [documentDirectory stringByAppendingPathComponent:@"store.data"];
-}
-
-- (BOOL)saveChanges
-{
-    // returns success or failure
-/* ARCHIVE METHOD DEPRECATED FOR Core Data
-    NSString *path = [self itemArchivePath];
-    
-    return [NSKeyedArchiver archiveRootObject:allItems
-                                       toFile:path];
-*/
-    NSError *err = nil;
-    BOOL successful = [context save:&err];
-    if (!successful) {
-        NSLog(@"Error saving: %@", [err localizedDescription]);
-    }
-    return successful;
 }
 
 
