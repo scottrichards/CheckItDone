@@ -22,7 +22,7 @@
 + (CDTaskStore *)sharedStore;
 - (NSArray *)allItems;
 - (CDTask *)createItem;
-- (CDTask *)createBlankItem;
+//- (CDTask *)createBlankItem;
 - (void)removeItem:(CDTask *)p;
 - (void)moveItemAtIndex:(int)from toIndex:(int)to;
 - (void)loadAllItems;

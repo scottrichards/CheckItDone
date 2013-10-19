@@ -8,6 +8,8 @@
 
 #import "CDListStore.h"
 #import "CDList.h"
+#import "CDAppDelegate.h"
+#import "CDDataModel.h"
 
 @implementation CDListStore
 
@@ -23,13 +25,20 @@
 {
     self = [super init];
     if (self) {
-        //        allItems = [[NSMutableArray alloc] init];
+ /*       //        allItems = [[NSMutableArray alloc] init];
         NSString *path = [self itemArchivePath];
         allLists = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
         
         // If the array hadn't been saved previously, create a new empty one
         if (!allLists)
             allLists = [[NSMutableArray alloc] init];
+  */
+        CDAppDelegate *appDelegate = (CDAppDelegate *)[[UIApplication sharedApplication] delegate];
+        CDDataModel *dataModel = [appDelegate dataModel];
+        self.dataModel = dataModel;
+        model = self.dataModel->model;
+        context = dataModel->context;
+        [self loadAllItems];
     }
     
     return self;
@@ -41,6 +50,7 @@
     return allLists;
 }
 
+/*
 - (CDList *)createList
 {
     CDList *p = [[CDList alloc] init];
@@ -49,20 +59,36 @@
     
     return p;
 }
-
+*/
 - (CDList *)createBlankList
 {
-    CDList *list = [[CDList alloc] init];
+//    CDList *list = [[CDList alloc] init];
+    static int listNum = 0;
     
-    [list setListName:@"New List"];
+    double order;
+    if ([allLists count] == 0) {
+        order = 1.0;
+    } else {
+        order = [[allLists lastObject] orderingValue] + 1.0;
+    }
+    NSLog(@"Adding after %d items, order = %.2f", [allLists count], order);
+    
+    CDList *list = [NSEntityDescription insertNewObjectForEntityForName:@"CDList"
+                                                 inManagedObjectContext:self.dataModel->context];
+    
+    [list setOrderingValue:order];
+    
+    NSString *listName = [NSString stringWithFormat:@"List #%d",listNum++];
+    [list setListName:listName];
     [allLists addObject:list];
     
     return list;
 }
 
-- (void)removeItem:(CDList *)p
+- (void)removeItem:(CDList *)list
 {
-    [allLists removeObjectIdenticalTo:p];
+    [allLists removeObjectIdenticalTo:list];
+    [context deleteObject:list];
 }
 
 - (void)moveItemAtIndex:(int)from
@@ -72,15 +98,38 @@
         return;
     }
     // Get pointer to object being moved so we can re-insert it
-    CDList *p = [allLists objectAtIndex:from];
+    CDList *list = [allLists objectAtIndex:from];
     
     // Remove p from array
     [allLists removeObjectAtIndex:from];
     
     // Insert p in array at new location
-    [allLists insertObject:p atIndex:to];
+    [allLists insertObject:list atIndex:to];
+    
+    // Computing a new orderValue for the object that was moved
+    double lowerBound = 0.0;
+    
+    // Is there an object before it in the array?
+    if (to > 0) {
+        lowerBound = [[allLists objectAtIndex:to - 1] orderingValue];
+    } else {
+        lowerBound = [[allLists objectAtIndex:1] orderingValue] - 2.0;
+    }
+    
+    double upperBound = 0.0;
+    
+    // Is there an object after it in the array?
+    if (to < [allLists count] - 1) {
+        upperBound = [[allLists objectAtIndex:to + 1] orderingValue];
+    } else {
+        upperBound = [[allLists objectAtIndex:to - 1] orderingValue] + 2.0;
+    }
+    
+    double newOrderValue = (lowerBound + upperBound) / 2.0;
+    
+    [list setOrderingValue:newOrderValue];
 }
-
+/*
 - (NSString *)itemArchivePath
 {
     NSArray *documentDirectories =
@@ -100,6 +149,30 @@
     
     return [NSKeyedArchiver archiveRootObject:allLists
                                        toFile:path];
+}
+*/
+- (void)loadAllItems
+{
+    if (!allLists) {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+        
+        NSEntityDescription *e = [[model entitiesByName] objectForKey:@"CDList"];
+        [request setEntity:e];
+        
+        NSSortDescriptor *sd = [NSSortDescriptor
+                                sortDescriptorWithKey:@"orderingValue"
+                                ascending:YES];
+        [request setSortDescriptors:[NSArray arrayWithObject:sd]];
+        
+        NSError *error;
+        NSArray *result = [context executeFetchRequest:request error:&error];
+        if (!result) {
+            [NSException raise:@"Fetch failed"
+                        format:@"Reason: %@", [error localizedDescription]];
+        }
+        
+        allLists = [[NSMutableArray alloc] initWithArray:result];
+    }
 }
 
 @end

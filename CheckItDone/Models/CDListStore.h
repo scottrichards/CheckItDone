@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CDList.h"
 
+@class CDDataModel;
+
 @interface CDListStore : NSObject
 {
     NSMutableArray *allLists;
@@ -16,12 +18,16 @@
     NSManagedObjectModel *model;
 }
 
+@property (strong, nonatomic) CDDataModel *dataModel;
+
 + (CDListStore *)sharedStore;
 - (NSArray *)allLists;
-- (CDList *)createList;
+//- (CDList *)createList;
 - (CDList *)createBlankList;
 - (void)removeItem:(CDList *)p;
 - (void)moveItemAtIndex:(int)from toIndex:(int)to;
-- (NSString *)itemArchivePath;
-- (BOOL)saveChanges;
+//- (NSString *)itemArchivePath;
+//- (BOOL)saveChanges;
+- (void)loadAllItems;
+
 @end

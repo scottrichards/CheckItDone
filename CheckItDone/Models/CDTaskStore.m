@@ -63,14 +63,6 @@
     return task;
 }
 
-- (CDTask *)createBlankItem
-{
-    CDTask *p = [[CDTask alloc] init];
-    
-    [allItems addObject:p];
-    
-    return p;
-}
 
 - (void)removeItem:(CDTask *)task
 {

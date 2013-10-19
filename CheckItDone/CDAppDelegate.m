@@ -51,12 +51,13 @@
     } else {
         NSLog(@"Could not save any of the BNRItems");
     }
-    success = [[CDListStore sharedStore] saveChanges];
+/*    success = [[CDListStore sharedStore] saveChanges];
     if (success) {
         NSLog(@"Saved all of the Lists");
     } else {
         NSLog(@"Could not save any of the Lists");
     }
+ */
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application

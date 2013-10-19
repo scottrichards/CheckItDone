@@ -2,16 +2,17 @@
 //  CDList.h
 //  CheckItDone
 //
-//  Created by Scott Richards on 10/10/13.
+//  Created by Scott Richards on 10/18/13.
 //  Copyright (c) 2013 Scott Richards. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-@class CDTaskStore;
+#import <CoreData/CoreData.h>
 
-@interface CDList : NSObject <NSCoding>
 
-@property (nonatomic, copy) NSString *listName;
-@property (weak, nonatomic) NSString *name;
-@property (strong, nonatomic) CDTaskStore *taskList;
+@interface CDList : NSManagedObject
+
+@property (nonatomic, retain) NSString * listName;
+@property (nonatomic) double orderingValue;
+
 @end

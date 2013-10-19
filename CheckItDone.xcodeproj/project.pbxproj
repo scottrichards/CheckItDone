@@ -11,7 +11,7 @@
 		011288C0180EEEF500346C78 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 011288BE180EEEF400346C78 /* DataModel.xcdatamodeld */; };
 		011288C3180EF4ED00346C78 /* CDTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 011288C2180EF4EC00346C78 /* CDTask.m */; };
 		011288C618105B1B00346C78 /* CDDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 011288C518105B1A00346C78 /* CDDataModel.m */; };
-		011288C91810617300346C78 /* CDList.m in Sources */ = {isa = PBXBuildFile; fileRef = 011288C81810617200346C78 /* CDList.m */; };
+		011288CF1811CA5900346C78 /* CDList.m in Sources */ = {isa = PBXBuildFile; fileRef = 011288CE1811CA5900346C78 /* CDList.m */; };
 		0131985F17FE0E96000CFC07 /* CDDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131985D17FE0E96000CFC07 /* CDDatePickerViewController.m */; };
 		0131986017FE0E96000CFC07 /* CDDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0131985E17FE0E96000CFC07 /* CDDatePickerViewController.xib */; };
 		0168B8E5180784F700750A7F /* CDListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0168B8E4180784F700750A7F /* CDListViewController.m */; };
@@ -53,8 +53,8 @@
 		011288C2180EF4EC00346C78 /* CDTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDTask.m; sourceTree = "<group>"; };
 		011288C418105B1A00346C78 /* CDDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDataModel.h; sourceTree = "<group>"; };
 		011288C518105B1A00346C78 /* CDDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDDataModel.m; sourceTree = "<group>"; };
-		011288C71810617200346C78 /* CDList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDList.h; sourceTree = "<group>"; };
-		011288C81810617200346C78 /* CDList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDList.m; sourceTree = "<group>"; };
+		011288CD1811CA5900346C78 /* CDList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDList.h; sourceTree = "<group>"; };
+		011288CE1811CA5900346C78 /* CDList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDList.m; sourceTree = "<group>"; };
 		0131985C17FE0E96000CFC07 /* CDDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDatePickerViewController.h; sourceTree = "<group>"; };
 		0131985D17FE0E96000CFC07 /* CDDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDDatePickerViewController.m; sourceTree = "<group>"; };
 		0131985E17FE0E96000CFC07 /* CDDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDDatePickerViewController.xib; sourceTree = "<group>"; };
@@ -151,13 +151,13 @@
 			children = (
 				0168B8E6180785CD00750A7F /* CDListStore.h */,
 				0168B8E7180785CD00750A7F /* CDListStore.m */,
-				011288C71810617200346C78 /* CDList.h */,
-				011288C81810617200346C78 /* CDList.m */,
 				011288C1180EF4EC00346C78 /* CDTask.h */,
 				011288C2180EF4EC00346C78 /* CDTask.m */,
 				0188543117FA03AF0081FC30 /* CDTaskStore.h */,
 				0188543217FA03AF0081FC30 /* CDTaskStore.m */,
 				011288BE180EEEF400346C78 /* DataModel.xcdatamodeld */,
+				011288CD1811CA5900346C78 /* CDList.h */,
+				011288CE1811CA5900346C78 /* CDList.m */,
 				011288C418105B1A00346C78 /* CDDataModel.h */,
 				011288C518105B1A00346C78 /* CDDataModel.m */,
 			);
@@ -359,7 +359,7 @@
 				011288C0180EEEF500346C78 /* DataModel.xcdatamodeld in Sources */,
 				011288C3180EF4ED00346C78 /* CDTask.m in Sources */,
 				011288C618105B1B00346C78 /* CDDataModel.m in Sources */,
-				011288C91810617300346C78 /* CDList.m in Sources */,
+				011288CF1811CA5900346C78 /* CDList.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
