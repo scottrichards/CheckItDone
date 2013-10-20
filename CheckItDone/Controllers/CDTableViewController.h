@@ -8,16 +8,20 @@
 
 #import <UIKit/UIKit.h>
 @class CDList;
+@class CDTaskStore;
 
 @interface CDTableViewController : UITableViewController
 {
     IBOutlet UIView *headerView;
 }
-@property (weak, nonatomic) IBOutlet UILabel *listName;
+@property (strong, nonatomic) IBOutlet UILabel *listName;
+
 @property (strong, nonatomic) CDList *tableItem;
+@property (strong, nonatomic) CDTaskStore *taskStore;
 
 - (UIView *)headerView;
 - (IBAction)toggleEditMode:(id)sender;
 - (IBAction)addNewItem:(id)sender;
 
+- (void)loadList:(CDList *)list;
 @end

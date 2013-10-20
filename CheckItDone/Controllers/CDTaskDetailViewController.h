@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CDTask.h"
+@class CDTableViewController;
 
 @interface CDTaskDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *taskName;
 @property (weak, nonatomic) IBOutlet UILabel *dueDate;
 
 @property (strong, nonatomic) CDTask *item;
+@property (strong, nonatomic) CDTableViewController *delegate;
 @property (nonatomic, copy) void (^dismissBlock)(void);
 
 - (IBAction)editDate:(id)sender;

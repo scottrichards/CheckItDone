@@ -10,6 +10,7 @@
 #import "CDTask.h"
 #import "CDTaskStore.h"
 #import "CDDatePickerViewController.h"
+#import "CDTableViewController.h"
 
 @interface CDTaskDetailViewController ()
 
@@ -117,7 +118,7 @@
 - (void)cancel:(id)sender
 {
     // If the user cancelled, then remove the BNRItem from the store
-    [[CDTaskStore sharedStore] removeItem:item];
+    [self.delegate.taskStore removeItem:item];
     
     [[self presentingViewController] dismissViewControllerAnimated:YES
                                                         completion:dismissBlock];

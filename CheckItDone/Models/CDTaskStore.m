@@ -10,14 +10,16 @@
 #import "CDTask.h"
 #import "CDDataModel.h"
 #import "CDAppDelegate.h"
+#import "CDList.h"
 
 @implementation CDTaskStore
 
-+ (CDTaskStore *)sharedStore
++ (CDTaskStore *)sharedStore:(CDList *)list
 {
     static CDTaskStore *sharedStore = nil;
     if (!sharedStore)
         sharedStore = [[super allocWithZone:nil] init];
+    
     return sharedStore;
 }
 
@@ -30,7 +32,7 @@
         self.dataModel = dataModel;
         model = self.dataModel->model;
         context = dataModel->context;
-        [self loadAllItems];
+//        [self loadAllItems];
     }
     
     return self;
@@ -109,13 +111,16 @@
     [task setOrderingValue:newOrderValue];
 }
 
-
-- (void)loadAllItems
+- (void)loadList:(CDList *)list
 {
     if (!allItems) {
         NSFetchRequest *request = [[NSFetchRequest alloc] init];
         
-        NSEntityDescription *e = [[model entitiesByName] objectForKey:@"CDTask"];
+        NSPredicate *predicate = [NSPredicate
+                                  predicateWithFormat:@"taskList = %@", list];
+        [request setPredicate:predicate];
+        
+        NSEntityDescription *e = [[self.dataModel->model entitiesByName] objectForKey:@"CDTask"];
         [request setEntity:e];
         
         NSSortDescriptor *sd = [NSSortDescriptor
@@ -133,4 +138,34 @@
         allItems = [[NSMutableArray alloc] initWithArray:result];
     }
 }
+
+/*
+- (void)loadAllItems
+{
+    if (!allItems) {
+        NSFetchRequest *request = [[NSFetchRequest alloc] init];
+
+        NSPredicate *predicate = [NSPredicate
+                                  predicateWithFormat:@"taskList = %@", self.taskList];
+        [request setPredicate:predicate];
+        
+        NSEntityDescription *e = [[self.dataModel->model entitiesByName] objectForKey:@"CDTask"];
+        [request setEntity:e];
+        
+        NSSortDescriptor *sd = [NSSortDescriptor
+                                sortDescriptorWithKey:@"orderingValue"
+                                ascending:YES];
+        [request setSortDescriptors:[NSArray arrayWithObject:sd]];
+        
+        NSError *error;
+        NSArray *result = [context executeFetchRequest:request error:&error];
+        if (!result) {
+            [NSException raise:@"Fetch failed"
+                        format:@"Reason: %@", [error localizedDescription]];
+        }
+        
+        allItems = [[NSMutableArray alloc] initWithArray:result];
+    }
+}
+ */
 @end

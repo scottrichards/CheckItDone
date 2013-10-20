@@ -202,7 +202,7 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     
     // Give detail view controller a pointer to the item object in row
     [tableViewController setTableItem:list];
-    
+    [tableViewController loadList:list];
     // Push it onto the top of the navigation controller's stack
     [[self navigationController] pushViewController:tableViewController
                                            animated:YES];

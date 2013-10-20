@@ -9,6 +9,7 @@
 #import "CDTableViewController.h"
 #import "CDTaskStore.h"
 #import "CDTask.h"
+#import "CDList.h"
 #import "CDTaskDetailViewController.h"
 #import "CDTaskItemViewCell.h"
 
@@ -24,19 +25,21 @@
     if (self) {
         UINavigationItem *n = [self navigationItem];
         
-        [n setTitle:@"To Do"];
+        [n setTitle:@"Tasks"];
 
         // Create a new bar button item that will send
         // addNewItem: to ItemsViewController
-        UIBarButtonItem *bbi = [[UIBarButtonItem alloc]
+/*        UIBarButtonItem *bbi = [[UIBarButtonItem alloc]
                                 initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                 target:self
                                 action:@selector(addNewItem:)];
         
         // Set this bar button item as the right item in the navigationItem
-        [[self navigationItem] setRightBarButtonItem:bbi];
+        [[self navigationItem] setRightBarButtonItem:bbi]; */
         
-        [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
+//        [[self navigationItem] setLeftBarButtonItem:[self editButtonItem]];
+        
+         self.taskStore = [[CDTaskStore alloc] init];
 
     }
     return self;
@@ -91,11 +94,12 @@
 
 - (IBAction)addNewItem:(id)sender {
     // Create a new BNRItem and add it to the store
-    CDTask *newItem = [[CDTaskStore sharedStore] createItem];
-    
+//    CDTask *newItem = [[CDTaskStore sharedStore] createItem];
+    CDTask *newItem = [self.taskStore createItem];
+    [newItem setValue:self.tableItem forKey:@"taskList"];
     CDTaskDetailViewController *detailViewController =
     [[CDTaskDetailViewController alloc] initForNewItem:YES];
-    
+    [detailViewController self];
     [detailViewController setItem:newItem];
     
     [detailViewController setDismissBlock:^{
@@ -112,6 +116,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [self.listName setText:self.tableItem.listName];
     [super viewWillAppear:animated];
     [[self tableView] reloadData];
 }
@@ -128,11 +133,16 @@
     
     // Load the NIB file
     UINib *nib = [UINib nibWithNibName:@"CDTaskItemViewCell" bundle:nil];
-// TO DO set name to tableItem.name
-    [self.listName setText:@"Hello"];
+
     // Register this NIB which contains the cell
     [[self tableView] registerNib:nib
            forCellReuseIdentifier:@"CDTaskItemViewCell"];
+}
+
+- (void)loadList:(CDList *)list
+{
+    [self.taskStore loadList:list];
+    [[self tableView] reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -151,7 +161,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[CDTaskStore sharedStore] allItems] count];
+//    return [[[CDTaskStore sharedStore] allItems] count];
+    return [[self.taskStore allItems] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -178,8 +189,10 @@
     // Set the text on the cell with the description of the item
     // that is at the nth index of items, where n = row this cell
     // will appear in on the tableview
-    CDTask *task = [[[CDTaskStore sharedStore] allItems]
-                  objectAtIndex:[indexPath row]];
+/*    CDTask *task = [[[CDTaskStore sharedStore] allItems]
+                  objectAtIndex:[indexPath row]]; */
+    CDTask *task = [[self.taskStore allItems]
+                    objectAtIndex:[indexPath row]];
     
  //   [[cell textLabel] setText:[p description]];
     [[cell taskName] setText:[task name]];
@@ -195,10 +208,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     // If the table view is asking to commit a delete command...
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        CDTaskStore *ps = [CDTaskStore sharedStore];
-        NSArray *items = [ps allItems];
+        CDTaskStore *taskStore = self.taskStore;
+        NSArray *items = [taskStore allItems];
         CDTask *p = [items objectAtIndex:[indexPath row]];
-        [ps removeItem:p];
+        [taskStore removeItem:p];
         
         // We also remove that row from the table view with an animation
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
@@ -213,7 +226,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
       toIndexPath:(NSIndexPath *)destinationIndexPath
 {
-    [[CDTaskStore sharedStore] moveItemAtIndex:[sourceIndexPath row]
+    [self.taskStore moveItemAtIndex:[sourceIndexPath row]
                                         toIndex:[destinationIndexPath row]];
 }
 
@@ -223,8 +236,8 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 {
     // Create and push Task Detail view controller.
     CDTaskDetailViewController *detailViewController = [[CDTaskDetailViewController alloc] init];
-    
-    NSArray *items = [[CDTaskStore sharedStore] allItems];
+    [detailViewController setDelegate:self];
+    NSArray *items = [self.taskStore allItems];
     CDTask *selectedItem = [items objectAtIndex:[indexPath row]];
     
     // Give detail view controller a pointer to the item object in row
