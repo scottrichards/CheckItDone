@@ -15,6 +15,8 @@
     IBOutlet UIView *headerView;
 }
 @property (strong, nonatomic) IBOutlet UILabel *listName;
+@property (weak, nonatomic) IBOutlet UITextField *editField;
+
 
 @property (strong, nonatomic) CDList *tableItem;
 @property (strong, nonatomic) CDTaskStore *taskStore;

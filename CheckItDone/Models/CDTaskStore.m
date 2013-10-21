@@ -14,6 +14,7 @@
 
 @implementation CDTaskStore
 
+/*
 + (CDTaskStore *)sharedStore:(CDList *)list
 {
     static CDTaskStore *sharedStore = nil;
@@ -22,7 +23,7 @@
     
     return sharedStore;
 }
-
+*/
 - (id)init
 {
     self = [super init];

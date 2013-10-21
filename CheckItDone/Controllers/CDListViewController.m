@@ -11,6 +11,7 @@
 #import "CDListStore.h"
 #import "CDTableViewController.h"
 #import "CDTaskStore.h"
+#import "CDListNameViewController.h"
 
 @interface CDListViewController ()
 
@@ -74,27 +75,42 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showList:(CDList *)newList
+{
+    // Create and push Task Detail view controller.
+    CDTableViewController *tableViewController = [[CDTableViewController alloc] init];
+    
+    // Give detail view controller a pointer to the item object in row
+    [tableViewController setTableItem:newList];
+    [tableViewController loadList:newList];
+    // Push it onto the top of the navigation controller's stack
+    [[self navigationController] pushViewController:tableViewController
+                                           animated:YES];
+}
+
 - (IBAction)addNewItem:(id)sender {
     // Create a new BNRItem and add it to the store
     CDList *newItem = [[CDListStore sharedStore] createBlankList];
-    [[self tableView] reloadData];
-/*
-    CDTaskDetailViewController *detailViewController =
-    [[CDTaskDetailViewController alloc] initForNewItem:YES];
+    CDListNameViewController *listNameViewController = [[CDListNameViewController alloc] init];
+    [listNameViewController setItem:newItem];
+    [listNameViewController setDelegate:self];
     
-    [detailViewController setItem:newItem];
-    
-    [detailViewController setDismissBlock:^{
+    [listNameViewController setDeleteList:^{
+        [[CDListStore sharedStore] removeItem:newItem];
         [[self tableView] reloadData];
+    }];
+    [listNameViewController setCreateList:^{
+        [self showList:newItem];
     }];
     
     UINavigationController *navController = [[UINavigationController alloc]
-                                             initWithRootViewController:detailViewController];
+                                             initWithRootViewController:listNameViewController];
     
     [navController setModalPresentationStyle:UIModalPresentationFormSheet];
     
     [self presentViewController:navController animated:YES completion:nil];
- */
+    
+//    [[self tableView] reloadData];
 }
 
 #pragma mark - Table view data source

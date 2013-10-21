@@ -60,6 +60,7 @@
     if (!headerView) {
         // Load HeaderView.xib
         [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
+//        [self.addTaskButton setImage:[UIImage imageNamed:@"edit"] forState:UIControlStateNormal];
     }
     
     return headerView;
@@ -77,6 +78,8 @@
     return [[self headerView] bounds].size.height;
 }
 
+
+
 - (IBAction)toggleEditMode:(id)sender {
     // If we are currently in editing mode...
     if ([self isEditing]) {
@@ -84,7 +87,17 @@
         [sender setTitle:@"Edit" forState:UIControlStateNormal];
         // Turn off editing mode
         [self setEditing:NO animated:YES];
+        if (![[self.editField text]isEqualToString:self.tableItem.listName])
+        {
+            self.tableItem.listName = [self.editField text];
+            [self.listName setText:self.tableItem.listName];
+        }
+        [self.listName setHidden:NO];
+        [self.editField setHidden:YES];
     } else {
+        [self.listName setHidden:YES];
+        [self.editField setText:self.tableItem.listName];
+        [self.editField setHidden:NO];
         // Change text of button to inform user of state
         [sender setTitle:@"Done" forState:UIControlStateNormal];
         // Enter editing mode
@@ -99,7 +112,7 @@
     [newItem setValue:self.tableItem forKey:@"taskList"];
     CDTaskDetailViewController *detailViewController =
     [[CDTaskDetailViewController alloc] initForNewItem:YES];
-    [detailViewController self];
+//    [detailViewController self];
     [detailViewController setItem:newItem];
     
     [detailViewController setDismissBlock:^{

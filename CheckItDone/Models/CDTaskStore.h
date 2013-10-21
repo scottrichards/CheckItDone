@@ -21,7 +21,7 @@
 @property (strong, nonatomic) CDDataModel *dataModel;
 @property (strong, nonatomic) CDList *taskList;
 
-+ (CDTaskStore *)sharedStore:(CDList *)list;
+//+ (CDTaskStore *)sharedStore:(CDList *)list;
 - (NSArray *)allItems;
 - (CDTask *)createItem;
 //- (CDTask *)createBlankItem;
