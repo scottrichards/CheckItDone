@@ -8,8 +8,6 @@
 
 #import "CDAppDelegate.h"
 
-#import "CDFirstViewController.h"
-#import "CDSecondViewController.h"
 #import "CDTaskViewController.h"
 #import "CDTableViewController.h"
 #import "CDTaskStore.h"
