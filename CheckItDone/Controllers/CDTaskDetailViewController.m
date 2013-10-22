@@ -126,9 +126,7 @@
 }
 
 - (IBAction)toggleRemindMe:(id)sender {
-    if (self.remindMeSwitch.on) {
- //       NSTimeInterval t = [[NSDate date] timeIntervalSinceReferenceDate];
-        
+    if (self.remindMeSwitch.on) {        
         NSDate *date = [NSDate date];
         [self.item setDate:date];
         [self showDate:self.item.date];

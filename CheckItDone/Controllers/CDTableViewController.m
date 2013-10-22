@@ -181,15 +181,18 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSDateFormatter *dateFormatter  = nil;
+    static NSDateFormatter *dateFormatter, *longDateFormatter  = nil;
     if (!dateFormatter) {
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
         [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
     }
-    
+ /*   if (!longDateFormatter) {
+        longDateFormatter = [[NSDateFormatter alloc] init];
+        [longDateFormatter setDateFormat:@"MM/dd/yyyy 'at' hh:mm:ss a"];
+    }
+   */ 
     // Check for a reusable cell first, use that if it exists
- //   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     CDTaskItemViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CDTaskItemViewCell"];
     
     // If there is no reusable cell of this type, create a new one
@@ -202,14 +205,22 @@
     // Set the text on the cell with the description of the item
     // that is at the nth index of items, where n = row this cell
     // will appear in on the tableview
-/*    CDTask *task = [[[CDTaskStore sharedStore] allItems]
-                  objectAtIndex:[indexPath row]]; */
     CDTask *task = [[self.taskStore allItems]
                     objectAtIndex:[indexPath row]];
     
- //   [[cell textLabel] setText:[p description]];
     [[cell taskName] setText:[task name]];
-    [[cell dueDate] setText:[dateFormatter stringFromDate:[task date]]];
+    if ([task date]) {
+        [[cell dueDate] setText:[dateFormatter stringFromDate:[task date]]];
+ /*       NSDate *now = [NSDate date];
+        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:[NSDate date] toDate:[task date] options:0];
+        NSInteger days = [components day];
+        NSString *nowStr = [longDateFormatter stringFromDate:now];
+        NSString *dateStr = [longDateFormatter stringFromDate:[task date]];
+        NSLog(@"Now = %@, To = %@ # of Days: %d",nowStr,dateStr,days);
+        if (days <= 0)  // if we are on or before the due date flag the date with red
+            [[cell dueDate] setTextColor:[UIColor redColor]];
+  */
+    }
     return cell;
 }
 
