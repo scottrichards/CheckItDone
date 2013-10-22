@@ -60,7 +60,8 @@
     if (!headerView) {
         // Load HeaderView.xib
         [[NSBundle mainBundle] loadNibNamed:@"HeaderView" owner:self options:nil];
-//        [self.addTaskButton setImage:[UIImage imageNamed:@"edit"] forState:UIControlStateNormal];
+/*        [self.editButton setImage:[UIImage imageNamed:@"Edit_Pencil"] forState:UIControlStateNormal];
+        [self.newButton setImage:[UIImage imageNamed:@"Add"] forState:UIControlStateNormal]; */
     }
     
     return headerView;
@@ -114,6 +115,7 @@
     [[CDTaskDetailViewController alloc] initForNewItem:YES];
 //    [detailViewController self];
     [detailViewController setItem:newItem];
+    [detailViewController setDelegate:self];
     
     [detailViewController setDismissBlock:^{
         [[self tableView] reloadData];
