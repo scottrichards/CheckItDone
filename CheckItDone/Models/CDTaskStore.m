@@ -136,33 +136,4 @@
     }
 }
 
-/*
-- (void)loadAllItems
-{
-    if (!allItems) {
-        NSFetchRequest *request = [[NSFetchRequest alloc] init];
-
-        NSPredicate *predicate = [NSPredicate
-                                  predicateWithFormat:@"taskList = %@", self.taskList];
-        [request setPredicate:predicate];
-        
-        NSEntityDescription *e = [[self.dataModel->model entitiesByName] objectForKey:@"CDTask"];
-        [request setEntity:e];
-        
-        NSSortDescriptor *sd = [NSSortDescriptor
-                                sortDescriptorWithKey:@"orderingValue"
-                                ascending:YES];
-        [request setSortDescriptors:[NSArray arrayWithObject:sd]];
-        
-        NSError *error;
-        NSArray *result = [context executeFetchRequest:request error:&error];
-        if (!result) {
-            [NSException raise:@"Fetch failed"
-                        format:@"Reason: %@", [error localizedDescription]];
-        }
-        
-        allItems = [[NSMutableArray alloc] initWithArray:result];
-    }
-}
- */
 @end

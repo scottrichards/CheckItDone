@@ -220,6 +220,8 @@
         if (days <= 0)  // if we are on or before the due date flag the date with red
             [[cell dueDate] setTextColor:[UIColor redColor]];
   */
+    } else {
+        [[cell dueDate] setText:@""];
     }
     return cell;
 }

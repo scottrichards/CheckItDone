@@ -25,14 +25,6 @@
 {
     self = [super init];
     if (self) {
- /*       //        allItems = [[NSMutableArray alloc] init];
-        NSString *path = [self itemArchivePath];
-        allLists = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
-        
-        // If the array hadn't been saved previously, create a new empty one
-        if (!allLists)
-            allLists = [[NSMutableArray alloc] init];
-  */
         CDAppDelegate *appDelegate = (CDAppDelegate *)[[UIApplication sharedApplication] delegate];
         CDDataModel *dataModel = [appDelegate dataModel];
         self.dataModel = dataModel;
@@ -50,19 +42,8 @@
     return allLists;
 }
 
-/*
-- (CDList *)createList
-{
-    CDList *p = [[CDList alloc] init];
-    
-    [allLists addObject:p];
-    
-    return p;
-}
-*/
 - (CDList *)createBlankList
 {
-//    CDList *list = [[CDList alloc] init];
     static int listNum = 0;
     
     double order;
@@ -129,28 +110,7 @@
     
     [list setOrderingValue:newOrderValue];
 }
-/*
-- (NSString *)itemArchivePath
-{
-    NSArray *documentDirectories =
-    NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                        NSUserDomainMask, YES);
-    
-    // Get one and only document directory from that list
-    NSString *documentDirectory = [documentDirectories objectAtIndex:0];
-    
-    return [documentDirectory stringByAppendingPathComponent:@"lists.archive"];
-}
 
-- (BOOL)saveChanges
-{
-    // returns success or failure
-    NSString *path = [self itemArchivePath];
-    
-    return [NSKeyedArchiver archiveRootObject:allLists
-                                       toFile:path];
-}
-*/
 - (void)loadAllItems
 {
     if (!allLists) {
