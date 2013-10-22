@@ -13,7 +13,7 @@
 @interface CDTask : NSManagedObject
 
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic) double date;
+@property (nonatomic) NSDate *date;
 @property (nonatomic) double orderingValue;
 
 @end

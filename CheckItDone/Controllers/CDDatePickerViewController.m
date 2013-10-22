@@ -15,6 +15,7 @@
 @implementation CDDatePickerViewController
 
 @synthesize item;
+@synthesize dismissBlock;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,8 +41,8 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:[item date]];
-    [self.datePicker setDate:date];
+//    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:[item date]];
+    [self.datePicker setDate:[item date]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -52,8 +53,14 @@
     [[self view] endEditing:YES];
     
     // "Save" changes to item
-    NSTimeInterval timeInterval = [[self.datePicker date] timeIntervalSinceReferenceDate];
-    [item setDate:timeInterval];
+//    NSTimeInterval timeInterval = [[self.datePicker date] timeIntervalSinceReferenceDate];
+
+    [item setDate:[self.datePicker date]];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+	df.dateStyle = NSDateFormatterMediumStyle;
+	NSString *dateStr = [NSString stringWithFormat:@"%@",
+                         [df stringFromDate:[item date]]];
+    NSLog(@"Date: %@",dateStr);
 }
 
 - (IBAction)selectDate:(id)sender {

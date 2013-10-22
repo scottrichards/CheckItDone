@@ -13,5 +13,7 @@
 @property (strong, nonatomic) CDTask *item;
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) NSDate *dueDate;
+@property (nonatomic, copy) void (^dismissBlock)(void);
+
 - (IBAction)selectDate:(id)sender;
 @end

@@ -60,11 +60,31 @@
     return self;
 }
 
+- (void)showDate:(NSDate *)date
+{
+    static NSDateFormatter *dateFormatter;
+    if (!dateFormatter) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    }
+    
+    [self.dueDate setText:[dateFormatter stringFromDate:date]];
+    [self.dueDate setHidden:NO];
+    [self.dateLabel setHidden:NO];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
     [self.taskName setText:[item name]];
+    if (item.date) {
+        // Create a NSDateFormatter that will turn a date into a simple date string
+        
+        [self.remindMeSwitch setOn:YES];
+        [self showDate:item.date];
+    }
     
 }
 
@@ -107,18 +127,11 @@
 
 - (IBAction)toggleRemindMe:(id)sender {
     if (self.remindMeSwitch.on) {
-        NSTimeInterval t = [[NSDate date] timeIntervalSinceReferenceDate];
-        [self.item setDate:t];
-        NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:[item date]];
+ //       NSTimeInterval t = [[NSDate date] timeIntervalSinceReferenceDate];
         
-        // Create a NSDateFormatter that will turn a date into a simple date string
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-        
-        [self.dueDate setText:[dateFormatter stringFromDate:date]];
-        [self.dueDate setHidden:NO];
-        [self.dateLabel setHidden:NO];
+        NSDate *date = [NSDate date];
+        [self.item setDate:date];
+        [self showDate:self.item.date];
     } else {
         [item setDate:0];
         [self.dueDate setHidden:YES];

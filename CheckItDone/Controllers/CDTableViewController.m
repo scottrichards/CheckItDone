@@ -209,8 +209,7 @@
     
  //   [[cell textLabel] setText:[p description]];
     [[cell taskName] setText:[task name]];
-    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:[task date]];
-    [[cell dueDate] setText:[dateFormatter stringFromDate:date]];
+    [[cell dueDate] setText:[dateFormatter stringFromDate:[task date]]];
     return cell;
 }
 
