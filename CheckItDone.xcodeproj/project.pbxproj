@@ -24,8 +24,6 @@
 		0188543917FA20B00081FC30 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188543717FA20B00081FC30 /* HeaderView.xib */; };
 		0188543E17FA44F10081FC30 /* CDTaskViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188543A17FA44F10081FC30 /* CDTaskViewController_iPad.xib */; };
 		0188543F17FA44F10081FC30 /* CDTaskViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188543C17FA44F10081FC30 /* CDTaskViewController_iPhone.xib */; };
-		0188544417FB26550081FC30 /* CDFirstViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188544017FB26550081FC30 /* CDFirstViewController_iPad.xib */; };
-		0188544517FB26550081FC30 /* CDFirstViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0188544217FB26550081FC30 /* CDFirstViewController_iPhone.xib */; };
 		01946B6C181588410041EA4B /* CDListNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01946B6A181588410041EA4B /* CDListNameViewController.m */; };
 		01946B70181588870041EA4B /* CDListNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01946B6E181588870041EA4B /* CDListNameViewController.xib */; };
 		01946B721815C8800041EA4B /* edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01946B711815C8800041EA4B /* edit@2x.png */; };
@@ -39,8 +37,6 @@
 		01BC369E17E0D21800E3FB36 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC369D17E0D21800E3FB36 /* Default.png */; };
 		01BC36A017E0D21800E3FB36 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC369F17E0D21800E3FB36 /* Default@2x.png */; };
 		01BC36A217E0D21800E3FB36 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36A117E0D21800E3FB36 /* Default-568h@2x.png */; };
-		01BC36A517E0D21800E3FB36 /* CDFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BC36A417E0D21800E3FB36 /* CDFirstViewController.m */; };
-		01BC36AC17E0D21800E3FB36 /* CDSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BC36AB17E0D21800E3FB36 /* CDSecondViewController.m */; };
 		01BC36CE17E0E33F00E3FB36 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36C817E0E33F00E3FB36 /* first.png */; };
 		01BC36CF17E0E33F00E3FB36 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36C917E0E33F00E3FB36 /* first@2x.png */; };
 		01BC36D017E0E33F00E3FB36 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 01BC36CA17E0E33F00E3FB36 /* second.png */; };
@@ -78,8 +74,6 @@
 		0188543817FA20B00081FC30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/HeaderView.xib; sourceTree = SOURCE_ROOT; };
 		0188543B17FA44F10081FC30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/CDTaskViewController_iPad.xib; sourceTree = SOURCE_ROOT; };
 		0188543D17FA44F10081FC30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/CDTaskViewController_iPhone.xib; sourceTree = SOURCE_ROOT; };
-		0188544117FB26550081FC30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/CDFirstViewController_iPad.xib; sourceTree = SOURCE_ROOT; };
-		0188544317FB26550081FC30 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/CDFirstViewController_iPhone.xib; sourceTree = SOURCE_ROOT; };
 		01946B69181588410041EA4B /* CDListNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDListNameViewController.h; sourceTree = "<group>"; };
 		01946B6A181588410041EA4B /* CDListNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDListNameViewController.m; sourceTree = "<group>"; };
 		01946B6F181588870041EA4B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = CheckItDone/en.lproj/CDListNameViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -98,10 +92,6 @@
 		01BC369D17E0D21800E3FB36 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		01BC369F17E0D21800E3FB36 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		01BC36A117E0D21800E3FB36 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		01BC36A317E0D21800E3FB36 /* CDFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDFirstViewController.h; sourceTree = "<group>"; };
-		01BC36A417E0D21800E3FB36 /* CDFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDFirstViewController.m; sourceTree = "<group>"; };
-		01BC36AA17E0D21800E3FB36 /* CDSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDSecondViewController.h; sourceTree = "<group>"; };
-		01BC36AB17E0D21800E3FB36 /* CDSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CDSecondViewController.m; sourceTree = "<group>"; };
 		01BC36C817E0E33F00E3FB36 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		01BC36C917E0E33F00E3FB36 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
 		01BC36CA17E0E33F00E3FB36 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
@@ -211,12 +201,8 @@
 				0188542217F9F3560081FC30 /* Views */,
 				01BC369A17E0D21800E3FB36 /* CDAppDelegate.h */,
 				01BC369B17E0D21800E3FB36 /* CDAppDelegate.m */,
-				01BC36A317E0D21800E3FB36 /* CDFirstViewController.h */,
-				01BC36A417E0D21800E3FB36 /* CDFirstViewController.m */,
 				01BC36E217E0E73F00E3FB36 /* CDTaskViewController.h */,
 				01BC36E317E0E73F00E3FB36 /* CDTaskViewController.m */,
-				01BC36AA17E0D21800E3FB36 /* CDSecondViewController.h */,
-				01BC36AB17E0D21800E3FB36 /* CDSecondViewController.m */,
 				01BC36C617E0E33F00E3FB36 /* Resources */,
 				01BC369217E0D21800E3FB36 /* Supporting Files */,
 			);
@@ -262,8 +248,6 @@
 		01BC36CC17E0E33F00E3FB36 /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				0188544017FB26550081FC30 /* CDFirstViewController_iPad.xib */,
-				0188544217FB26550081FC30 /* CDFirstViewController_iPhone.xib */,
 				01946B6E181588870041EA4B /* CDListNameViewController.xib */,
 				01EDFECD17FDC7F3009EFB32 /* CDTaskDetailViewController.xib */,
 				016B7CEE1801CB8500CC0D95 /* CDTaskItemViewCell.xib */,
@@ -342,8 +326,6 @@
 				0188543917FA20B00081FC30 /* HeaderView.xib in Resources */,
 				0188543E17FA44F10081FC30 /* CDTaskViewController_iPad.xib in Resources */,
 				0188543F17FA44F10081FC30 /* CDTaskViewController_iPhone.xib in Resources */,
-				0188544417FB26550081FC30 /* CDFirstViewController_iPad.xib in Resources */,
-				0188544517FB26550081FC30 /* CDFirstViewController_iPhone.xib in Resources */,
 				01EDFECF17FDC7F3009EFB32 /* CDTaskDetailViewController.xib in Resources */,
 				0131986017FE0E96000CFC07 /* CDDatePickerViewController.xib in Resources */,
 				016B7CF01801CB8500CC0D95 /* CDTaskItemViewCell.xib in Resources */,
@@ -362,8 +344,6 @@
 			files = (
 				01BC369817E0D21800E3FB36 /* main.m in Sources */,
 				01BC369C17E0D21800E3FB36 /* CDAppDelegate.m in Sources */,
-				01BC36A517E0D21800E3FB36 /* CDFirstViewController.m in Sources */,
-				01BC36AC17E0D21800E3FB36 /* CDSecondViewController.m in Sources */,
 				01BC36E517E0E73F00E3FB36 /* CDTaskViewController.m in Sources */,
 				0188542717F9F3DD0081FC30 /* CDTableView.m in Sources */,
 				0188542D17FA01D30081FC30 /* CDTableViewController.m in Sources */,
@@ -414,22 +394,6 @@
 				0188543D17FA44F10081FC30 /* en */,
 			);
 			name = CDTaskViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		0188544017FB26550081FC30 /* CDFirstViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0188544117FB26550081FC30 /* en */,
-			);
-			name = CDFirstViewController_iPad.xib;
-			sourceTree = "<group>";
-		};
-		0188544217FB26550081FC30 /* CDFirstViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0188544317FB26550081FC30 /* en */,
-			);
-			name = CDFirstViewController_iPhone.xib;
 			sourceTree = "<group>";
 		};
 		01946B6E181588870041EA4B /* CDListNameViewController.xib */ = {

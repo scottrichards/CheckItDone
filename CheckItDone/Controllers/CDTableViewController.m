@@ -181,7 +181,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSDateFormatter *dateFormatter, *longDateFormatter  = nil;
+    static NSDateFormatter *dateFormatter /*, *longDateFormatter*/  = nil;
     if (!dateFormatter) {
         dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
