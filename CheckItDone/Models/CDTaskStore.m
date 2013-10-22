@@ -31,9 +31,6 @@
         CDAppDelegate *appDelegate = (CDAppDelegate *)[[UIApplication sharedApplication] delegate];
         CDDataModel *dataModel = [appDelegate dataModel];
         self.dataModel = dataModel;
-        model = self.dataModel->model;
-        context = dataModel->context;
-//        [self loadAllItems];
     }
     
     return self;
@@ -46,7 +43,6 @@
 
 - (CDTask *)createItem
 {
- //    CDTask *p = [[CDTask alloc] init];
  
     double order;
     if ([allItems count] == 0) {
@@ -70,7 +66,7 @@
 - (void)removeItem:(CDTask *)task
 {
     [allItems removeObjectIdenticalTo:task];
-    [context deleteObject:task];
+    [self.dataModel->context deleteObject:task];
 }
 
 - (void)moveItemAtIndex:(int)from
@@ -130,7 +126,7 @@
         [request setSortDescriptors:[NSArray arrayWithObject:sd]];
         
         NSError *error;
-        NSArray *result = [context executeFetchRequest:request error:&error];
+        NSArray *result = [self.dataModel->context executeFetchRequest:request error:&error];
         if (!result) {
             [NSException raise:@"Fetch failed"
                         format:@"Reason: %@", [error localizedDescription]];

@@ -29,7 +29,7 @@
         UINavigationItem *n = [self navigationItem];
         [[[self navigationItem] leftBarButtonItem] setTitle:@"Back"];
         [n setTitle:@"Task Details"];
-
+        
     }
     return self;
 }
@@ -51,8 +51,12 @@
                                            target:self
                                            action:@selector(cancel:)];
             [[self navigationItem] setLeftBarButtonItem:cancelItem];
+            
+            [[self navigationItem] setTitle:@"New Task"];
+            
         }
     }
+    
     return self;
 }
 
@@ -62,16 +66,6 @@
     
     [self.taskName setText:[item name]];
     
-    // Create a NSDateFormatter that will turn a date into a simple date string
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    
-    // Use filtered NSDate object to set dateLabel contents
-//    [self.dueDate setText:[dateFormatter stringFromDate:[item date]]];
-    // Convert time interval to NSDate
-    NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:[item date]];
-    [self.dueDate setText:[dateFormatter stringFromDate:date]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -90,6 +84,19 @@
 {
     [super viewDidLoad];
     [[self view] setBackgroundColor:[UIColor colorWithWhite:.8 alpha:1]];
+    
+    // when click on the due date bring up the date picker control
+    self.dueDate.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOnDate)];
+    [self.dueDate addGestureRecognizer:tapGesture];
+}
+
+- (void) clickOnDate
+{
+    CDDatePickerViewController *datePickerViewController = [[CDDatePickerViewController alloc] init];
+    [datePickerViewController setItem:self.item];
+    [[self navigationController] pushViewController:datePickerViewController
+                                           animated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -98,16 +105,27 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)editDate:(id)sender {
-    // Create and push Task Detail view controller.
-    CDDatePickerViewController *datePickerViewController = [[CDDatePickerViewController alloc] init];
-    [datePickerViewController setItem:self.item];
-//    [[datePickerViewController datePicker] setDate:[item dateCreated]];
-    [[self navigationController] pushViewController:datePickerViewController
-                                           animated:YES];
-
-    
+- (IBAction)toggleRemindMe:(id)sender {
+    if (self.remindMeSwitch.on) {
+        NSTimeInterval t = [[NSDate date] timeIntervalSinceReferenceDate];
+        [self.item setDate:t];
+        NSDate *date = [NSDate dateWithTimeIntervalSinceReferenceDate:[item date]];
+        
+        // Create a NSDateFormatter that will turn a date into a simple date string
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+        
+        [self.dueDate setText:[dateFormatter stringFromDate:date]];
+        [self.dueDate setHidden:NO];
+        [self.dateLabel setHidden:NO];
+    } else {
+        [item setDate:0];
+        [self.dueDate setHidden:YES];
+        [self.dateLabel setHidden:YES];
+    }
 }
+
 
 - (void)save:(id)sender
 {

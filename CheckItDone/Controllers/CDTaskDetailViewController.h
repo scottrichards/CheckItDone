@@ -13,12 +13,14 @@
 @interface CDTaskDetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *taskName;
 @property (weak, nonatomic) IBOutlet UILabel *dueDate;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *remindMeSwitch;
 
 @property (strong, nonatomic) CDTask *item;
 @property (strong, nonatomic) CDTableViewController *delegate;
 @property (nonatomic, copy) void (^dismissBlock)(void);
+- (IBAction)toggleRemindMe:(id)sender;
 
-- (IBAction)editDate:(id)sender;
 - (id)initForNewItem:(BOOL)isNew;
 
 @end

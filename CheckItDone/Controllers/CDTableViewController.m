@@ -249,6 +249,11 @@ moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 {
     // Create and push Task Detail view controller.
     CDTaskDetailViewController *detailViewController = [[CDTaskDetailViewController alloc] init];
+
+    [detailViewController setDismissBlock:^{
+        [[self tableView] reloadData];
+    }];
+
     [detailViewController setDelegate:self];
     NSArray *items = [self.taskStore allItems];
     CDTask *selectedItem = [items objectAtIndex:[indexPath row]];

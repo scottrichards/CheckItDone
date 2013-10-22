@@ -15,11 +15,12 @@
 @dynamic date;
 @dynamic orderingValue;
 
+/*
 - (void)awakeFromInsert
 {
     [super awakeFromInsert];
     NSTimeInterval t = [[NSDate date] timeIntervalSinceReferenceDate];
     [self setDate:t];
 }
-
+*/
 @end
