@@ -13,6 +13,11 @@
 		011288C618105B1B00346C78 /* CDDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 011288C518105B1A00346C78 /* CDDataModel.m */; };
 		011288CF1811CA5900346C78 /* CDList.m in Sources */ = {isa = PBXBuildFile; fileRef = 011288CE1811CA5900346C78 /* CDList.m */; };
 		0131985F17FE0E96000CFC07 /* CDDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0131985D17FE0E96000CFC07 /* CDDatePickerViewController.m */; };
+		01350103182D7B55001EF6E8 /* uicheckbox_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 013500FF182D7B55001EF6E8 /* uicheckbox_checked.png */; };
+		01350104182D7B55001EF6E8 /* uicheckbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01350100182D7B55001EF6E8 /* uicheckbox_checked@2x.png */; };
+		01350105182D7B55001EF6E8 /* uicheckbox_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 01350101182D7B55001EF6E8 /* uicheckbox_unchecked.png */; };
+		01350106182D7B55001EF6E8 /* uicheckbox_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01350102182D7B55001EF6E8 /* uicheckbox_unchecked@2x.png */; };
+		01350109182D7B6F001EF6E8 /* UICheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 01350108182D7B6F001EF6E8 /* UICheckbox.m */; };
 		0168B8E5180784F700750A7F /* CDListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0168B8E4180784F700750A7F /* CDListViewController.m */; };
 		0168B8E8180785CD00750A7F /* CDListStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0168B8E7180785CD00750A7F /* CDListStore.m */; };
 		016B7CF01801CB8500CC0D95 /* CDTaskItemViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 016B7CEE1801CB8500CC0D95 /* CDTaskItemViewCell.xib */; };
@@ -56,6 +61,12 @@
 		011288CE1811CA5900346C78 /* CDList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDList.m; sourceTree = "<group>"; };
 		0131985C17FE0E96000CFC07 /* CDDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDDatePickerViewController.h; sourceTree = "<group>"; };
 		0131985D17FE0E96000CFC07 /* CDDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDDatePickerViewController.m; sourceTree = "<group>"; };
+		013500FF182D7B55001EF6E8 /* uicheckbox_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uicheckbox_checked.png; sourceTree = "<group>"; };
+		01350100182D7B55001EF6E8 /* uicheckbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uicheckbox_checked@2x.png"; sourceTree = "<group>"; };
+		01350101182D7B55001EF6E8 /* uicheckbox_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uicheckbox_unchecked.png; sourceTree = "<group>"; };
+		01350102182D7B55001EF6E8 /* uicheckbox_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "uicheckbox_unchecked@2x.png"; sourceTree = "<group>"; };
+		01350107182D7B6F001EF6E8 /* UICheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICheckbox.h; sourceTree = "<group>"; };
+		01350108182D7B6F001EF6E8 /* UICheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICheckbox.m; sourceTree = "<group>"; };
 		0168B8E3180784F700750A7F /* CDListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDListViewController.h; sourceTree = "<group>"; };
 		0168B8E4180784F700750A7F /* CDListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDListViewController.m; sourceTree = "<group>"; };
 		0168B8E6180785CD00750A7F /* CDListStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDListStore.h; sourceTree = "<group>"; };
@@ -122,6 +133,8 @@
 				0188542617F9F3DD0081FC30 /* CDTableView.m */,
 				016B7CF31801EB6D00CC0D95 /* CDTaskItemViewCell.h */,
 				016B7CF41801EB6D00CC0D95 /* CDTaskItemViewCell.m */,
+				01350107182D7B6F001EF6E8 /* UICheckbox.h */,
+				01350108182D7B6F001EF6E8 /* UICheckbox.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,6 +242,10 @@
 		01BC36C717E0E33F00E3FB36 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				013500FF182D7B55001EF6E8 /* uicheckbox_checked.png */,
+				01350100182D7B55001EF6E8 /* uicheckbox_checked@2x.png */,
+				01350101182D7B55001EF6E8 /* uicheckbox_unchecked.png */,
+				01350102182D7B55001EF6E8 /* uicheckbox_unchecked@2x.png */,
 				01C4088E18162EB9002260C7 /* Add@2x.png */,
 				01C4089018162EEA002260C7 /* Edit_Pencil@2x.png */,
 				01946B731815C8AB0041EA4B /* edit.png */,
@@ -327,6 +344,10 @@
 				01C4088D18162BB8002260C7 /* CDDatePickerViewController.xib in Resources */,
 				01C4088F18162EB9002260C7 /* Add@2x.png in Resources */,
 				01C4089118162EEA002260C7 /* Edit_Pencil@2x.png in Resources */,
+				01350103182D7B55001EF6E8 /* uicheckbox_checked.png in Resources */,
+				01350104182D7B55001EF6E8 /* uicheckbox_checked@2x.png in Resources */,
+				01350105182D7B55001EF6E8 /* uicheckbox_unchecked.png in Resources */,
+				01350106182D7B55001EF6E8 /* uicheckbox_unchecked@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +373,7 @@
 				011288C618105B1B00346C78 /* CDDataModel.m in Sources */,
 				011288CF1811CA5900346C78 /* CDList.m in Sources */,
 				01946B6C181588410041EA4B /* CDListNameViewController.m in Sources */,
+				01350109182D7B6F001EF6E8 /* UICheckbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
