@@ -29,7 +29,7 @@
 - (void)awakeFromNib
 {
     NSLog(@"awakeFromNib");
-    [self.doneCheckbox setSelector:]
+//    [self.doneCheckbox setSelector:]
 }
 
 @end
