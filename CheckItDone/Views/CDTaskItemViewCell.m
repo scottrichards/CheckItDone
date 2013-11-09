@@ -7,6 +7,8 @@
 //
 
 #import "CDTaskItemViewCell.h"
+#import "UICheckbox.h"
+#import "CDTask.h"
 
 @implementation CDTaskItemViewCell
 
@@ -29,7 +31,14 @@
 - (void)awakeFromNib
 {
     NSLog(@"awakeFromNib");
-//    [self.doneCheckbox setSelector:]
+    
+    [self.doneCheckbox setDelegate:self];
+}
+
+- (void)clickedCheckbox:(BOOL)boolValue 
+{
+    NSLog(@"clickedCheckbox: %@",boolValue ? @"ON" : @"OFF");
+    [self.item setDone:boolValue];
 }
 
 @end

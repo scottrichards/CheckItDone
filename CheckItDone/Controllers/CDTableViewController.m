@@ -213,7 +213,6 @@
     
     [cell setItem:task];
     BOOL isChecked = [task done];
-    isChecked = YES;
     [[cell doneCheckbox] setChecked:isChecked];
     [[cell taskName] setText:[task name]];
     if ([task date]) {

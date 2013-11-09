@@ -17,4 +17,6 @@
 @property (weak, nonatomic) IBOutlet UICheckbox *doneCheckbox;
 @property (strong, nonatomic) CDTask *item;
 
+- (void)clickedCheckbox:(BOOL)boolValue;
+
 @end

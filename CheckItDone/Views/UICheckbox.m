@@ -11,12 +11,14 @@
 //
 
 #import "UICheckbox.h"
+#import "CDTaskItemViewCell.h"
 
 @interface UICheckbox (){
     BOOL loaded;
 }
 
 @property(nonatomic, strong)UILabel *textLabel;
+
 
 @end
 
@@ -64,6 +66,8 @@
 
 -(void)setChecked:(BOOL)boolValue {
     _checked = boolValue;
+    if (self.delegate)
+        [self.delegate clickedCheckbox:boolValue];
     [self setNeedsDisplay];
 }
 

@@ -11,6 +11,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class CDTaskItemViewCell;
 
 @interface UICheckbox : UIControl
 
@@ -21,6 +22,6 @@
 @property(nonatomic, assign)BOOL checked;
 @property(nonatomic, assign)BOOL disabled;
 @property(nonatomic, strong)NSString *text;
-@property(nonatomic, assign)SEL action;
+@property(nonatomic, weak)CDTaskItemViewCell *delegate;
 
 @end
