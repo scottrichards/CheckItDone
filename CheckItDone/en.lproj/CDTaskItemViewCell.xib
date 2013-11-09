@@ -54,7 +54,7 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">Label</string>
-								<object class="NSColor" key="IBUITextColor" id="721072748">
+								<object class="NSColor" key="IBUITextColor" id="142786589">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MCAwIDAAA</bytes>
 									<string key="IBUIColorCocoaTouchKeyPath">darkTextColor</string>
@@ -83,7 +83,6 @@
 								<string key="NSFrame">{{211, 11}, {79, 21}}</string>
 								<reference key="NSSuperview" ref="192719921"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -91,7 +90,7 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText"/>
-								<reference key="IBUITextColor" ref="721072748"/>
+								<reference key="IBUITextColor" ref="142786589"/>
 								<reference key="IBUIHighlightedColor" ref="652625195"/>
 								<int key="IBUIBaselineAdjustment">0</int>
 								<int key="IBUITextAlignment">2</int>
@@ -106,7 +105,7 @@
 								</object>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
-							<object class="IBUIView" id="918813890">
+							<object class="IBUIView" id="790303465">
 								<reference key="NSNextResponder" ref="192719921"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{10, 11}, {22, 22}}</string>
@@ -127,7 +126,7 @@
 						<string key="NSFrameSize">{300, 43}</string>
 						<reference key="NSSuperview" ref="900923154"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="918813890"/>
+						<reference key="NSNextKeyView" ref="790303465"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -168,6 +167,14 @@
 					</object>
 					<int key="connectionID">76</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">doneCheckbox</string>
+						<reference key="source" ref="900923154"/>
+						<reference key="destination" ref="790303465"/>
+					</object>
+					<int key="connectionID">80</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -194,7 +201,7 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="82650445"/>
 							<reference ref="1036408956"/>
-							<reference ref="918813890"/>
+							<reference ref="790303465"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -212,7 +219,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">77</int>
-						<reference key="object" ref="918813890"/>
+						<reference key="object" ref="790303465"/>
 						<reference key="parent" ref="900923154"/>
 					</object>
 				</array>
@@ -233,7 +240,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">77</int>
+			<int key="maxID">80</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -241,10 +248,15 @@
 					<string key="className">CDTaskItemViewCell</string>
 					<string key="superclassName">UITableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="doneCheckbox">UICheckbox</string>
 						<string key="dueDate">UILabel</string>
 						<string key="taskName">UILabel</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="doneCheckbox">
+							<string key="name">doneCheckbox</string>
+							<string key="candidateClassName">UICheckbox</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="dueDate">
 							<string key="name">dueDate</string>
 							<string key="candidateClassName">UILabel</string>

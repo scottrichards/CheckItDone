@@ -21,5 +21,6 @@
 @property(nonatomic, assign)BOOL checked;
 @property(nonatomic, assign)BOOL disabled;
 @property(nonatomic, strong)NSString *text;
+@property(nonatomic, assign)SEL action;
 
 @end

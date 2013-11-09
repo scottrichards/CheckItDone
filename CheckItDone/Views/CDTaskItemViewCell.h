@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class UICheckbox;
+@class CDTask;
+
 @interface CDTaskItemViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *taskName;
 @property (weak, nonatomic) IBOutlet UILabel *dueDate;
-
+@property (weak, nonatomic) IBOutlet UICheckbox *doneCheckbox;
+@property (strong, nonatomic) CDTask *item;
 
 @end

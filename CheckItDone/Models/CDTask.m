@@ -13,6 +13,7 @@
 
 @dynamic name;
 @dynamic date;
+@dynamic done;
 @dynamic orderingValue;
 
 /*

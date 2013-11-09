@@ -15,5 +15,6 @@
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic) NSDate *date;
 @property (nonatomic) double orderingValue;
+@property (nonatomic) BOOL done;
 
 @end

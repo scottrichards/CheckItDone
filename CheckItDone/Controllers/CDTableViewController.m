@@ -12,6 +12,7 @@
 #import "CDList.h"
 #import "CDTaskDetailViewController.h"
 #import "CDTaskItemViewCell.h"
+#import "UICheckbox.h"
 
 @interface CDTableViewController ()
 
@@ -201,7 +202,7 @@
     if (!cell) {
         cell = [[CDTaskItemViewCell alloc]
                 initWithStyle:UITableViewCellStyleDefault
-                reuseIdentifier:@"UITableViewCell"];
+                reuseIdentifier:@"CDTaskItemViewCell"];
     }
     
     // Set the text on the cell with the description of the item
@@ -210,6 +211,10 @@
     CDTask *task = [[self.taskStore allItems]
                     objectAtIndex:[indexPath row]];
     
+    [cell setItem:task];
+    BOOL isChecked = [task done];
+    isChecked = YES;
+    [[cell doneCheckbox] setChecked:isChecked];
     [[cell taskName] setText:[task name]];
     if ([task date]) {
         [[cell dueDate] setText:[dateFormatter stringFromDate:[task date]]];

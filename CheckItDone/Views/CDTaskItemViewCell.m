@@ -26,4 +26,10 @@
     // Configure the view for the selected state
 }
 
+- (void)awakeFromNib
+{
+    NSLog(@"awakeFromNib");
+    [self.doneCheckbox setSelector:]
+}
+
 @end
